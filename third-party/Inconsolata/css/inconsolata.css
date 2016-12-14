@@ -1,0 +1,15 @@
+/* Inconsolata Webfont Kit
+ * -------------------------- */
+@font-face {
+  font-family: 'Inconsolata';
+  src: url("../fonts/Regular/Inconsolata-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url("../fonts/Bold/Inconsolata-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}

@@ -1,0 +1,12 @@
+
+// URL to base font directory
+$inconsolata-path: "../fonts" !default;
+
+@mixin inconsolata-font-face( $font, $weight: normal, $style: normal ) {
+	@font-face {
+		font-family: 'Inconsolata';
+		src: url('#{$inconsolata-path}/#{$font}/Inconsolata-#{$font}.ttf') format('truetype');
+		font-weight: $weight;
+		font-style: $style;
+	}
+}
