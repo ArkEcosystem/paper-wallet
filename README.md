@@ -14,7 +14,7 @@ Paper wallet generator for Ark cryptocurrency.
 ```
 (The MIT License)
 
-Copyright (c) 2016 Ricardo Ferro <ricardo.ferro@gmail.com>, Fx Thoorens <fx.thoorens@ark.io>
+Copyright (c) 2016 Ricardo Ferro <ricardo.ferro@gmail.com>, Fx Thoorens <fx.thoorens@ark.io>, Rok <rok@ark.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
