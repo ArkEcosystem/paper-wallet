@@ -14,10 +14,13 @@ angular.module('wallet', [])
         }
 
         let kp = arkjs.crypto.getKeys(passphrase)
+        let address = arkjs.crypto.getAddress(kp.publicKey)
 
         return {
           passphrase,
-          address: arkjs.crypto.getAddress(kp.publicKey),
+          passphraseqr: '{"passphrase":"'+passphrase+'"}',
+          address: address,
+          addressqr: '{"a":"'+address+'"}',
           publicKey: kp.publicKey,
           privateKey: kp.privateKey,
           entropy: bip39.mnemonicToEntropy(passphrase),

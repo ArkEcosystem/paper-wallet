@@ -386,7 +386,7 @@ app.directive('qrcode', () => {
         elem.empty()
 
         if (nv) {
-          elem.qrcode({ render: 'image', size: scope.size, text: "{'a':'"+nv+"'}" })
+          elem.qrcode({ render: 'image', size: scope.size, text: nv })
         }
       })
     }

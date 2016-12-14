@@ -19,7 +19,7 @@
             </h1>
             <h5>Unofficial paper wallet generator for <a href="http://ark.io" target="blank">Ark</a> cryptocurrency. Hosted by Github Pages. Source code is available <a href="https://github.com/arkecosystem/ark-paperwallet" target="blank">here</a>.
             </h5>
-            <h5 class="text-center"><small>We recommended use this tool offline: <a href="https://github.com/arkecosystem/ark-paperwallet/archive/v1.9.0.tar.gz" class="alert-link">download</a> the source code and open index.html in your browser without internet access.</small></h5>
+            <h5 class="text-center"><small>We recommended use this tool offline: <a href="https://github.com/arkecosystem/ark-paperwallet/archive/v1.0.0.tar.gz" class="alert-link">download</a> the source code and open index.html in your browser without internet access.</small></h5>
             <div class="gh-btns"><a href="https://github.com/arkecosystem/ark-paperwallet" data-icon="octicon-eye" data-style="mega" data-count-href="/arkecosystem/ark-paperwallet/watchers" data-count-api="/repos/arkecosystem/ark-paperwallet#subscribers_count" data-count-aria-label="# watchers on GitHub" aria-label="Watch arkecosystem/arkpaperwallet on GitHub" class="github-button">Watch</a><a href="https://github.com/arkecosystem/ark-paperwallet" data-icon="octicon-star" data-style="mega" data-count-href="/arkecosystem/ark-paperwallet/stargazers" data-count-api="/repos/arkecosystem/ark-paperwallet#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star arkecosystem/arkpaperwallet on GitHub" class="github-button">Star</a><a href="https://github.com/arkecosystem/ark-paperwallet/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/arkecosystem/ark-paperwallet/network" data-count-api="/repos/arkecosystem/ark-paperwallet#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork arkecosystem/arkpaperwallet on GitHub" class="github-button">Fork</a><a href="https://github.com/arkecosystem/ark-paperwallet/issues" data-icon="octicon-issue-opened" data-style="mega" data-count-api="/repos/arkecosystem/ark-paperwallet#open_issues_count" data-count-aria-label="# issues on GitHub" aria-label="Issue arkecosystem/arkpaperwallet on GitHub" class="github-button">Issue</a><a href="https://github.com/arkecosystem/ark-paperwallet/archive/v1.0.0.tar.gz" data-icon="octicon-cloud-download" data-style="mega" aria-label="Download arkecosystem/arkpaperwallet on GitHub" class="github-button">Download</a></div>
           </div>
         </div>
@@ -97,12 +97,12 @@
         <div class="col-md-6 text-center">
           <h2>Public Address <small>SHARE</small>
           </h2>
-          <qrcode data="data.address" size="240" class="big"></qrcode>
+          <qrcode data="data.addressqr" size="240" class="big"></qrcode>
         </div>
         <div class="col-md-6 text-center">
           <h2>Secret Passphrase <small>KEEP SAFE</small>
           </h2>
-          <qrcode data="data.passphrase" size="240" class="big"></qrcode>
+          <qrcode data="data.passphraseqr" size="240" class="big"></qrcode>
         </div>
       </div>
       <div class="row after">
@@ -120,8 +120,8 @@
         <div class="col-md-12 text-center">
           <div ng-style="{ width: art.width + 2, height: art.height + 2 }" class="paper-wrapper center-block">
             <div ng-style="{ width: art.width, height: art.height }" class="paper"><img ng-src="images/{{ art.image }}{{ amount ? 'a' : '' }}.png">
-              <qrcode data="data.address" size="art.address.qr.size" ng-style="art.address.qr"></qrcode>
-              <qrcode data="data.passphrase" size="art.passphrase.qr.size" ng-style="art.passphrase.qr"></qrcode>
+              <qrcode data="data.addressqr" size="art.address.qr.size" ng-style="art.address.qr"></qrcode>
+              <qrcode data="data.passphraseqr" size="art.passphrase.qr.size" ng-style="art.passphrase.qr"></qrcode>
               <div ng-bind="data.address" ng-style="art.address.text" class="address"></div>
               <div ng-hide="art.address.label.hide" ng-style="art.address.label" class="address_label">public address</div>
               <div ng-bind="data.passphrase" ng-style="art.passphrase.text" class="passphrase"></div>

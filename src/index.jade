@@ -97,12 +97,12 @@ html.no-js
           h2
             = 'Public Address '
             small SHARE
-          qrcode.big(data='data.address', size='240')
+          qrcode.big(data='data.addressqr', size='240')
         .col-md-6.text-center
           h2
             = 'Secret Passphrase '
             small KEEP SAFE
-          qrcode.big(data='data.passphrase', size='240')
+          qrcode.big(data='data.passphraseqr', size='240')
       .row.after
         .col-md-12.text-center
           h2.noprint Paper Wallet
@@ -115,8 +115,8 @@ html.no-js
           .paper-wrapper.center-block(ng-style='{ width: art.width + 2, height: art.height + 2 }')
             .paper(ng-style='{ width: art.width, height: art.height }')
               img(ng-src="images/{{ art.image }}{{ amount ? 'a' : '' }}.png")
-              qrcode(data='data.address', size='art.address.qr.size', ng-style='art.address.qr')
-              qrcode(data='data.passphrase', size='art.passphrase.qr.size', ng-style='art.passphrase.qr')
+              qrcode(data='data.addressqr', size='art.address.qr.size', ng-style='art.address.qr')
+              qrcode(data='data.passphraseqr', size='art.passphrase.qr.size', ng-style='art.passphrase.qr')
               .address(ng-bind='data.address', ng-style='art.address.text')
               .address_label(ng-hide='art.address.label.hide', ng-style='art.address.label') public address
               .passphrase(ng-bind='data.passphrase', ng-style='art.passphrase.text')
