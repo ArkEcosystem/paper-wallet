@@ -1,0 +1,238 @@
+@import '../third-party/Inconsolata/css/inconsolata.css';
+@import '../third-party/lato-font/css/lato-font.css';
+* {
+  outline: 0 !important;
+}
+.ng-cloak {
+  display: none;
+}
+#preload {
+  display: none;
+  background: url(../images/01.png), url(../images/01a.png), url(../images/02.png), url(../images/02a.png);
+}
+body {
+  font-family: "Lato";
+  margin-bottom: 60px;
+}
+.page-header {
+  border-bottom: 1px solid #efefef;
+}
+.page-header h1 a {
+  color: #222;
+}
+.page-header h5 small {
+  color: #999;
+}
+.page-header h5 small a {
+  color: #555;
+}
+.page-header .version {
+  color: #bbb;
+}
+.page-header .gh-btns {
+  height: 28px;
+}
+.page-header .gh-btns iframe {
+  margin: 0 5px !important;
+}
+entropy .btns {
+  margin-bottom: 25px;
+}
+entropy .btns .btn {
+  margin: 5px 0;
+}
+entropy byte {
+  display: inline-block;
+  text-align: center;
+  font-size: 160%;
+  font-family: Inconsolata;
+  padding: 4px 6px;
+  color: #555;
+  line-height: 1.1;
+  margin: 2px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  background-color: #95a5a6;
+  color: #fff;
+}
+entropy byte .dec {
+  font-size: 60%;
+  color: #ddd;
+}
+entropy byte.change-add,
+entropy byte.change-remove {
+  transition: all .1s linear;
+}
+entropy byte.change,
+entropy byte.change-add-active,
+entropy byte.change-remove {
+  background-color: #18bc9c;
+  transform: scale(1.1);
+}
+entropy byte.change-remove-active {
+  background-color: #95a5a6;
+  transform: none;
+}
+entropy .pulsate {
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+}
+@keyframes pulsate {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+entropy .progress {
+  width: 80%;
+  margin: 20px auto;
+}
+entropy .progress-bar {
+  background-image: none;
+  background-color: #18bc9c;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+entropy input {
+  font-family: Inconsolata;
+}
+wallet .hash {
+  font-family: Inconsolata;
+  word-wrap: break-word;
+  cursor: pointer;
+  font-size: 100%;
+}
+wallet .hash.passphrase {
+  font-size: 140%;
+  font-weight: bold;
+}
+wallet .hash.address {
+  font-size: 170%;
+  font-weight: bold;
+}
+wallet .data span:not(.badge) {
+  color: #888;
+}
+wallet qrcode.big img {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+wallet .paper-wrapper {
+  position: relative;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  cursor: default;
+  border: 1px solid #777;
+}
+wallet .paper-wrapper * {
+  position: absolute;
+}
+wallet .paper-wrapper img {
+  top: 0;
+  left: 0;
+}
+wallet .paper-wrapper .paper .address,
+wallet .paper-wrapper .paper .passphrase,
+wallet .paper-wrapper .paper .amount_label {
+  white-space: nowrap;
+  color: #2c2c2c;
+}
+wallet .paper-wrapper .paper .passphrase_label,
+wallet .paper-wrapper .paper .address_label {
+  white-space: nowrap;
+  color: #eee;
+}
+.cssload-loader {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  margin: 30px auto;
+  border-radius: 6px;
+  background-color: #333;
+  transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  animation: cssload-loader 0.75s linear infinite;
+  -o-animation: cssload-loader 0.75s linear infinite;
+  -ms-animation: cssload-loader 0.75s linear infinite;
+  -webkit-animation: cssload-loader 0.75s linear infinite;
+  -moz-animation: cssload-loader 0.75s linear infinite;
+}
+.cssload-loader:before {
+  content: "";
+  position: absolute;
+  background-color: #333;
+  top: 0px;
+  left: -13px;
+  height: 6px;
+  width: 6px;
+  border-radius: 6px;
+  opacity: 0.5;
+}
+.cssload-loader:after {
+  content: "";
+  position: absolute;
+  background-color: #333;
+  top: 0px;
+  left: 13px;
+  height: 6px;
+  width: 6px;
+  border-radius: 6px;
+  opacity: 0.5;
+}
+@keyframes cssload-loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@-o-keyframes cssload-loader {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(180deg);
+  }
+}
+@-ms-keyframes cssload-loader {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(180deg);
+  }
+}
+@-webkit-keyframes cssload-loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+  }
+}
+@-moz-keyframes cssload-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(180deg);
+  }
+}
+@media print {
+  .noprint,
+  .noprint * {
+    display: none;
+  }
+}

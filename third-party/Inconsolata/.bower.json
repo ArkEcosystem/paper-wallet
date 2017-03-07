@@ -1,0 +1,29 @@
+{
+  "name": "Inconsolata",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dg-vrnetze/inconsolata",
+  "description": "SCSS webfont kit for the awesome inconsolata font.",
+  "main": "scss/inconsolata.scss",
+  "license": "SIL Open Font License",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "bower_components",
+    ".sass-cache",
+    ".gitignore",
+    "Makefile",
+    "README.md"
+  ],
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "fc27c858ebfa4ed7a714c02ad9b579d1f4270b13"
+  },
+  "_source": "https://github.com/dg-vrnetze/inconsolata.git",
+  "_target": "^0.0.1",
+  "_originalSource": "inconsolata"
+}
