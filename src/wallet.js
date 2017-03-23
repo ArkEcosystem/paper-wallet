@@ -22,7 +22,6 @@ angular.module('wallet', [])
           address: address,
           addressqr: '{"a":"'+address+'"}',
           publicKey: kp.publicKey,
-          privateKey: kp.privateKey,
           entropy: bip39.mnemonicToEntropy(passphrase),
           seed: bip39.mnemonicToSeedHex(passphrase),
         }
