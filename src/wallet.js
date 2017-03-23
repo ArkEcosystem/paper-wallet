@@ -13,15 +13,20 @@ angular.module('wallet', [])
           passphrase = bip39.generateMnemonic()
         }
 
-        let kp = arkjs.crypto.getKeys(passphrase)
-        let address = arkjs.crypto.getAddress(kp.publicKey)
+        let networks = arkjs.networks
+        let ecpair = arkjs.ECPair.fromSeed(passphrase, networks.ark)
+
+        let publicKey = ecpair.getPublicKeyBuffer().toString('hex')
+        let address = ecpair.getAddress().toString('hex')
+        let wif = ecpair.toWIF()
 
         return {
           passphrase,
           passphraseqr: '{"passphrase":"'+passphrase+'"}',
           address: address,
           addressqr: '{"a":"'+address+'"}',
-          publicKey: kp.publicKey,
+          publicKey: publicKey,
+          wif: wif,
           entropy: bip39.mnemonicToEntropy(passphrase),
           seed: bip39.mnemonicToSeedHex(passphrase),
         }
