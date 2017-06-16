@@ -395,7 +395,7 @@ app.directive('wallet', ($rootScope, $timeout, wallet) => {
   }
 })
 
-app.directive('decrypt', ($rootScope, $timeout, wallet) => {
+app.directive('decrypt', ($rootScope, $timeout, $q, wallet) => {
   return {
     restrict: 'E',
     templateUrl: 'decrypt',
@@ -408,7 +408,9 @@ app.directive('decrypt', ($rootScope, $timeout, wallet) => {
         $loading.show()
 
         $timeout(() => {
-          wallet.decryptPassphrase(params.password, params.encrypted).then((data) => {
+          var defer = $q.defer();
+          defer.resolve(wallet.decryptPassphrase(params.password, params.encrypted))
+          defer.promise.then((data) => {
             scope.data = data
           }, () => {
             alert('Incorrect passphrase for this encrypted private key.');

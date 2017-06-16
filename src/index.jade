@@ -158,10 +158,10 @@ html.no-js
         ul.list-group.data
           li.list-group-item
             span.badge Address
-            span.hash(ng-bind='data.address', clipboard)
+            span.hash(clipboard) {{data.address}}
           li.list-group-item
             span.badge Passphrase
-            span.hash(ng-bind='data.passphrase', clipboard)
+            span.hash(clipboard) {{data.passphrase}}
     
     script(src='third-party/jquery/dist/jquery.min.js')
     script(src='third-party/jquery-qrcode/dist/jquery.qrcode.min.js')
