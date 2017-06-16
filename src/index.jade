@@ -39,6 +39,7 @@ html.no-js
 
       entropy
       wallet
+      decrypt
       #preload
 
     script(type='text/ng-template', id='entropy')
@@ -46,10 +47,20 @@ html.no-js
         .col-md-12.text-center
           button.btn.btn-info.btn_random(type='button', ng-click='random.start()', ng-disabled='btn_disabled') Create a new random wallet
           button.btn.btn-info(type='button', ng-click='enter.start()', ng-disabled='btn_disabled') Enter a secret passphrase
+          button.btn.btn-info(type='button', ng-click='decrypt.start()', ng-disabled='btn_disabled') Decrypt password
       .row.noprint(ng-show='enter.started')
         .col-md-12.text-center
           .form-group: input.form-control.input-lg.text-center.input_passphrase(type='text', placeholder='enter your passphrase here', ng-model='enter.value', ng-keyup='enterKeyUp($event)')
           button.btn.btn-default.btn_generate(ng-disabled='!enter.valid', ng-click='enterGenerate()') Generate
+      .row.noprint(ng-show='decrypt.started')
+        .col-md-12.text-center
+          .form.form-inline
+            .form-group
+              input.form-control.input-md.text-center.bip38Password(type='text', placeholder='BIP38 password', ng-model='enter.password')
+            .form-group
+              input.form-control.input-md.text-center.encryptedKey(type='text', placeholder='Encrypted key', ng-model='enter.encrypted',style='width:300px')
+            .form-group
+              button.btn.btn-default(ng-click='decryptGenerate()') Decrypt
       .row.noprint
         .col-md-12(ng-show='random.started')
           h4.text-center.pulsaste Move your mouse to generate random bytes
@@ -106,6 +117,17 @@ html.no-js
       .row.after
         .col-md-12.text-center
           h2.noprint Paper Wallet
+          
+          form.form-inline(style='margin: 1em 0',ng-model='form')
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox',ng-model='encrypt')
+                |  BIP38 Encrypt?
+            .form-group
+              input.form-control(type='text',ng-model='data.password',ng-if='encrypt',placeholder='Don\'t forget this!')
+            button.btn.btn-primary(type='submit',ng-if='encrypt',ng-click='encryptPassphrase()')
+              | Encrypt
+            
           .papers.noprint
             .btn-group.btn-group-xs
               button.btn(ng-repeat='(id, art) in arts', ng-bind='id', ng-click='set_art(id)', ng-class="{ 'btn-primary': id === art_active, 'btn-info': id !== art_active }", ng-if='id > 0')
@@ -116,10 +138,10 @@ html.no-js
             .paper(ng-style='{ width: art.width, height: art.height }')
               img(ng-src="images/{{ art.image }}{{ amount ? 'a' : '' }}.png")
               qrcode(data='data.addressqr', size='art.address.qr.size', ng-style='art.address.qr')
-              qrcode(data='data.passphraseqr', size='art.passphrase.qr.size', ng-style='art.passphrase.qr')
+              qrcode(data='data.passphraseqr_bip38', size='art.passphrase.qr.size', ng-style='art.passphrase.qr')
               .address(ng-bind='data.address', ng-style='art.address.text')
               .address_label(ng-hide='art.address.label.hide', ng-style='art.address.label') public address
-              .passphrase(ng-bind='data.passphrase', ng-style='art.passphrase.text')
+              .passphrase(ng-bind='data.passphrase_bip38', ng-style='art.passphrase.text')
               .passphrase_label(ng-hide='art.passphrase.label.hide', ng-style='art.passphrase.label') secret passphrase
               .amount_label(ng-show='amount', ng-style='art.amount.label') amount:
       .row.noprint.after
@@ -127,7 +149,20 @@ html.no-js
           button.btn.btn-warning(type='button', ng-click='print()')
             span.glyphicon.glyphicon-print(aria-hidden='true')
             = ' Print Paper Wallet'
-
+    
+    script(type='text/ng-template', id='decrypt')
+      .row.noprint.loading_decrypt
+        .col-md-12
+          .cssload-loader
+      .col-md-12.text-center.after_decrypt
+        ul.list-group.data
+          li.list-group-item
+            span.badge Address
+            span.hash(clipboard) {{data.address}}
+          li.list-group-item
+            span.badge Passphrase
+            span.hash(clipboard) {{data.passphrase}}
+    
     script(src='third-party/jquery/dist/jquery.min.js')
     script(src='third-party/jquery-qrcode/dist/jquery.qrcode.min.js')
     script(src='third-party/angular/angular.min.js')
