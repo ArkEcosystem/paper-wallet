@@ -24,6 +24,7 @@
       </div>
       <entropy></entropy>
       <wallet></wallet>
+      <decrypt></decrypt>
       <div id="preload"></div>
     </div>
     <script type="text/ng-template" id="entropy">
@@ -31,6 +32,7 @@
         <div class="col-md-12 text-center">
           <button type="button" ng-click="random.start()" ng-disabled="btn_disabled" class="btn btn-info btn_random">Create a new random wallet</button>
           <button type="button" ng-click="enter.start()" ng-disabled="btn_disabled" class="btn btn-info">Enter a secret passphrase</button>
+          <button type="button" ng-click="decrypt.start()" ng-disabled="btn_disabled" class="btn btn-info">Decrypt password</button>
         </div>
       </div>
       <div ng-show="enter.started" class="row noprint">
@@ -39,6 +41,21 @@
             <input type="text" placeholder="enter your passphrase here" ng-model="enter.value" ng-keyup="enterKeyUp($event)" class="form-control input-lg text-center input_passphrase">
           </div>
           <button ng-disabled="!enter.valid" ng-click="enterGenerate()" class="btn btn-default btn_generate">Generate</button>
+        </div>
+      </div>
+      <div ng-show="decrypt.started" class="row noprint">
+        <div class="col-md-12 text-center">
+          <div class="form form-inline">
+            <div class="form-group">
+              <input type="text" placeholder="BIP38 password" ng-model="enter.password" class="form-control input-md text-center bip38Password">
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Encrypted key" ng-model="enter.encrypted" style="width:300px" class="form-control input-md text-center encryptedKey">
+            </div>
+            <div class="form-group">
+              <button ng-click="decryptGenerate()" class="btn btn-default">Decrypt</button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row noprint">
@@ -106,6 +123,17 @@
       <div class="row after">
         <div class="col-md-12 text-center">
           <h2 class="noprint">Paper Wallet</h2>
+          <form style="margin: 1em 0" ng-model="form" class="form-inline">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" ng-model="encrypt" class="form-check-input"> BIP38 Encrypt?
+              </label>
+            </div>
+            <div class="form-group">
+              <input type="text" ng-model="data.password" ng-if="encrypt" placeholder="Don't forget this!" class="form-control">
+            </div>
+            <button type="submit" ng-if="encrypt" ng-click="encryptPassphrase()" class="btn btn-primary">Encrypt</button>
+          </form>
           <div class="papers noprint">
             <div class="btn-group btn-group-xs">
               <button ng-repeat="(id, art) in arts" ng-bind="id" ng-click="set_art(id)" ng-class="{ 'btn-primary': id === art_active, 'btn-info': id !== art_active }" ng-if="id &gt; 0" class="btn"></button>
@@ -119,10 +147,10 @@
           <div ng-style="{ width: art.width + 2, height: art.height + 2 }" class="paper-wrapper center-block">
             <div ng-style="{ width: art.width, height: art.height }" class="paper"><img ng-src="images/{{ art.image }}{{ amount ? 'a' : '' }}.png">
               <qrcode data="data.addressqr" size="art.address.qr.size" ng-style="art.address.qr"></qrcode>
-              <qrcode data="data.passphraseqr" size="art.passphrase.qr.size" ng-style="art.passphrase.qr"></qrcode>
+              <qrcode data="data.passphraseqr_bip38" size="art.passphrase.qr.size" ng-style="art.passphrase.qr"></qrcode>
               <div ng-bind="data.address" ng-style="art.address.text" class="address"></div>
               <div ng-hide="art.address.label.hide" ng-style="art.address.label" class="address_label">public address</div>
-              <div ng-bind="data.passphrase" ng-style="art.passphrase.text" class="passphrase"></div>
+              <div ng-bind="data.passphrase_bip38" ng-style="art.passphrase.text" class="passphrase"></div>
               <div ng-hide="art.passphrase.label.hide" ng-style="art.passphrase.label" class="passphrase_label">secret passphrase</div>
               <div ng-show="amount" ng-style="art.amount.label" class="amount_label">amount:</div>
             </div>
@@ -134,6 +162,19 @@
           <button type="button" ng-click="print()" class="btn btn-warning"><span aria-hidden="true" class="glyphicon glyphicon-print"></span> Print Paper Wallet
           </button>
         </div>
+      </div>
+    </script>
+    <script type="text/ng-template" id="decrypt">
+      <div class="row noprint loading_decrypt">
+        <div class="col-md-12">
+          <div class="cssload-loader"></div>
+        </div>
+      </div>
+      <div class="col-md-12 text-center after_decrypt">
+        <ul class="list-group data">
+          <li class="list-group-item"><span class="badge">Address</span><span ng-bind="data.address" clipboard class="hash"></span></li>
+          <li class="list-group-item"><span class="badge">Passphrase</span><span ng-bind="data.passphrase" clipboard class="hash"></span></li>
+        </ul>
       </div>
     </script>
     <script src="third-party/jquery/dist/jquery.min.js"></script>

@@ -129,6 +129,9 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
     link (scope, elem, attrs) {
       let $input = elem.find('.input_passphrase')
       let $button = elem.find('.btn_generate')
+      let $bip38Password = elem.find('.bip38Password')
+      let $encryptedKey = elem.find('.encryptedKey')
+
       let $form = $input.parent()
 
       let fix = v => v.replace(/ +/g, ' ').trim().toLowerCase()
@@ -148,6 +151,16 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
         scope.enter.stop()
 
         $timeout(() => $rootScope.$broadcast('wallet_start', fix($input.val())))
+      },
+
+      scope.decryptGenerate = () => {
+        scope.decrypt.stop()
+        var params = {
+          password: $bip38Password.val(),
+          encrypted: $encryptedKey.val()
+        }
+
+        $timeout(() => $rootScope.$broadcast('decrypt_start', params))
       }
 
       scope.enterKeyUp = (ev) => {
@@ -199,7 +212,8 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
         },
         start () {
           $scope.btn.disable()
-
+          $scope.random.stop()
+          $scope.decrypt.stop()
           $scope.random.started = true
 
           $rootScope.$broadcast('wallet_stop')
@@ -279,11 +293,27 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
         },
         start () {
           $rootScope.$broadcast('wallet_stop')
-
+          $scope.random.stop()
+          $scope.decrypt.stop()
           $scope.enter.started = true
 
           $scope.enter.reset()
           $scope.enterFocus()
+        },
+      }
+
+      $scope.decrypt = {
+        start () {
+          $rootScope.$broadcast('wallet_stop')
+          $scope.enter.stop()
+          $scope.random.stop()
+          $scope.decrypt.started = true
+
+          $scope.enter.reset()
+          $scope.enterFocus()
+        },
+        stop () {
+          $scope.decrypt.started = false
         }
       }
     }
@@ -296,6 +326,7 @@ app.directive('byte', (util) => {
     templateUrl: 'byte',
     scope: { data: '=ngData' },
     link (scope, elem, attrs) {
+      elem.find('.after_decrypt').hide()
       scope.$watch('data', (nv) => {
         scope.dec = util.lpad(nv.toString(), '0', 3)
         scope.hex = util.lpad(nv.toString(16), '0', 2)
@@ -312,6 +343,7 @@ app.directive('wallet', ($rootScope, $timeout, wallet) => {
     link (scope, elem, attrs) {
       let $loading = elem.find('.loading').hide()
       let $after = elem.find('.after').hide()
+      let $after_decrypt = elem.find('.after_decrypt').hide()
 
       scope.arts = arts
 
@@ -335,6 +367,8 @@ app.directive('wallet', ($rootScope, $timeout, wallet) => {
 
         $timeout(() => {
           scope.data = wallet.mnemonicToData(passphrase)
+          scope.data.passphrase_bip38 = scope.data.passphrase
+          scope.data.passphraseqr_bip38 = scope.data.passphraseqr
 
           $rootScope.$broadcast('btn_enabled')
           $loading.hide()
@@ -344,12 +378,53 @@ app.directive('wallet', ($rootScope, $timeout, wallet) => {
 
       $rootScope.$on('wallet_stop', () => {
         $after.hide()
+        $after_decrypt.hide()
         scope.data = {}
       })
+
+      scope.encryptPassphrase = () => {
+        var encrypted = wallet.encryptPassphrase(scope.data.entropy, scope.data.password)
+        scope.data.passphrase_bip38 = encrypted
+        scope.data.passphraseqr_bip38 = '{"passphrase":"'+encrypted+'"}';
+      }
 
       scope.print = () => {
         window.print()
       }
+    }
+  }
+})
+
+app.directive('decrypt', ($rootScope, $timeout, wallet) => {
+  return {
+    restrict: 'E',
+    templateUrl: 'decrypt',
+    scope: {},
+    link (scope, elem, attrs) {
+      let $loading = elem.find('.loading_decrypt').hide()
+      let $after = elem.find('.after_decrypt').hide()
+
+      $rootScope.$on('decrypt_start', (ev, params) => {
+        $loading.show()
+
+        $timeout(() => {
+          wallet.decryptPassphrase(params.password, params.encrypted).then((data) => {
+            scope.data = data
+          }, () => {
+            alert('Incorrect passphrase for this encrypted private key.');
+            $rootScope.$emit('wallet_stop');
+          })
+          $rootScope.$broadcast('btn_enabled')
+          $loading.hide()
+          $after.show()
+        }, 700)
+
+      })
+
+      $rootScope.$on('wallet_stop', () => {
+        $after.hide()
+        scope.data = {}
+      })
     }
   }
 })
