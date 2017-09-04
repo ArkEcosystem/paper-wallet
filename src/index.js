@@ -178,6 +178,8 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
         }
       }
 
+      $scope.stage = 'stage-1'
+
       $rootScope.$on('btn_disabled', () => {
         $scope.btn.disable()
       })
@@ -199,6 +201,8 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
         },
         start () {
           $scope.btn.disable()
+
+          $scope.stage = 'stage-2'
 
           $scope.random.started = true
 
