@@ -36,11 +36,11 @@ html.no-js
           = '.'
 
     script(type='text/ng-template', id='entropy')
-      .container-fluid(ng-show='stage == "stage-1" || stage == "stage-1.5"')
+      .container-fluid(ng-show='stage == 1 || stage == 1.5')
         .row.noprint
           .col-md-12.text-center.wallet-icon()
             img(src="images/wallet.png")
-      .row.noprint.btns(ng-show='stage == "stage-1"')
+      .row.noprint.btns(ng-show='stage == 1')
         .col-md-12.text-center
           button.btn.btn-info.btn_primary(type='button', ng-click='random.start()', ng-disabled='btn_disabled') Create a new random wallet
         .col-md-12.text-center

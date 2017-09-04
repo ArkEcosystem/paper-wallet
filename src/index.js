@@ -147,7 +147,7 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
         scope.btn.disable()
         scope.enter.stop()
 
-        scope.stage = 'stage-2'
+        scope.stage = 2
 
         $timeout(() => $rootScope.$broadcast('wallet_start', fix($input.val())))
       }
@@ -180,7 +180,7 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
         }
       }
 
-      $scope.stage = 'stage-1'
+      $scope.stage = 1
 
       $rootScope.$on('btn_disabled', () => {
         $scope.btn.disable()
@@ -204,7 +204,7 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
         start () {
           $scope.btn.disable()
 
-          $scope.stage = 'stage-2'
+          $scope.stage = 2
 
           $scope.random.started = true
 
@@ -288,7 +288,7 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
 
           $scope.enter.started = true
 
-          $scope.stage = 'stage-1.5'
+          $scope.stage = 1.5
 
           $scope.enter.reset()
           $scope.enterFocus()
