@@ -21,8 +21,6 @@ body {
 }
 
 .page-header {
-  border-bottom: 1px solid #efefef;
-
   h1 {
     a {
       color: #222;
@@ -49,13 +47,75 @@ body {
   }
 }
 
+.page-header.logo {
+  margin-top: 50px;
+  margin-bottom: 8px;
+  padding-bottom: 0;
+}
+
+.footer {
+  margin-top: 40px;
+  color: #aeb6c3;
+}
+.footer a {
+  color: #000;
+}
+
+.bg-band-grey {
+  background: rgb(244, 244, 247);
+}
+.title-container {
+  padding-bottom: 100px;
+}
+.wallet-icon {
+  margin-bottom: 60px;
+  margin-top: -60px;
+}
+
 entropy {
   .btns {
     margin-bottom: 25px;
 
     .btn {
       margin: 5px 0;
+      padding: 15px 25px;
+      color: #000;
+      background: #fff;
+      border: 0;
+      border-radius: 0;
+      -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
+      -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
+      box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
     }
+
+    .btn:hover {
+      color: rgba(52, 95, 242, 1);
+      background: #fff;
+      -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 1);
+      -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 1);
+      box-shadow: 0 0 25px 0px rgba(181, 183, 191, 1);
+    }
+
+    .btn_primary {
+      margin-bottom: 30px;
+      background: rgba(52, 95, 242, 1);
+      color: #fff;
+      -webkit-box-shadow: 0 0 25px 0px rgba(52, 95, 242, .71);
+      -moz-box-shadow: 0 0 25px 0px rgba(52, 95, 242, .71);
+      box-shadow: 0 0 25px 0px rgba(52, 95, 242, .71);
+    }
+
+    .btn_primary:hover {
+      background: rgba(11, 62, 236, 1);
+      color: #fff;
+      -webkit-box-shadow: 0 0 25px 0px rgba(52, 95, 242, 1);
+      -moz-box-shadow: 0 0 25px 0px rgba(52, 95, 242, 1);
+      box-shadow: 0 0 25px 0px rgba(52, 95, 242, 1);
+    }
+  }
+
+  .generate-key {
+    margin-top: 80px;
   }
 
   byte {
@@ -67,14 +127,14 @@ entropy {
     color: #555;
     line-height: 1.1;
     margin: 2px;
-    border-radius: 5px;
+    border-radius: 0;
     text-transform: uppercase;
-    background-color: #95a5a6;
-    color: #fff;
+    background-color: #f0f0f0;
+    color: #939397;
 
     .dec {
       font-size: 60%;
-      color: #ddd;
+      color: #939397;
     }
 
     &.change-add, &.change-remove {
@@ -82,8 +142,13 @@ entropy {
     }
 
     &.change, &.change-add-active, &.change-remove {
-      background-color: #18bc9c;
+      background-color: #1a23e7;
       transform: scale(1.1);
+      color: #fff;
+
+      .dec {
+        color: #fff;
+      }
     }
 
     &.change-remove-active {
@@ -106,11 +171,13 @@ entropy {
   .progress {
     width: 80%;
     margin: 20px auto;
+    border-radius: 0;
+    height: 6px;
   }
 
   .progress-bar {
     background-image: none;
-    background-color: #18bc9c;
+    background-color: #1a23e7;
     -webkit-transition: none;
     -moz-transition: none;
     -ms-transition: none;
@@ -141,17 +208,6 @@ wallet {
     }
   }
 
-  .data {
-    span:not(.badge) {
-      color: #888;
-    }
-  }
-
-  qrcode.big img {
-    padding: 10px;
-    border: 1px solid #ddd;
-  }
-
   .paper-wrapper {
     position: relative;
     margin-top: 25px;
@@ -178,6 +234,70 @@ wallet {
         color: #eee;
       }
     }
+  }
+
+  qrcode {
+    margin: 25px;
+    float: left;
+  }
+
+  .address-block {
+    padding: 20px;
+    margin-bottom: 60px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
+    -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
+    box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
+  }
+  .address-block-public {
+    margin-top: -175px;
+  }
+
+  .address-block h5 {
+    color: rgba(150, 150, 150, 1);
+    font-weight: bold;
+    margin-top: 35px;
+  }
+  .address-block-public h5 {
+    margin-top: 40px;
+  }
+
+  .address-block .description {
+    display: inline-block;
+    margin: 18px 0;
+  }
+
+  .key-data {
+    padding: 60px;
+    margin-bottom: 60px;
+    border: 1px solid rgba(181, 183, 191, .72);
+  }
+
+  .key-data-item {
+    border-bottom: 1px solid rgba(181, 183, 191, .72);
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+
+  .key-data-item h5 {
+    color: rgba(150, 150, 150, 1);
+    font-weight: bold;
+  }
+
+  .key-data-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .btn-save {
+    &:extend(entropy .btns .btn);
+    &:extend(entropy .btns .btn_primary);
+  }
+
+  .btn-save:hover {
+    &:extend(entropy .btns .btn:hover);
+    &:extend(entropy .btns .btn_primary:hover);
   }
 }
 
