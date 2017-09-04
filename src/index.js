@@ -147,6 +147,8 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
         scope.btn.disable()
         scope.enter.stop()
 
+        scope.stage = 'stage-2'
+
         $timeout(() => $rootScope.$broadcast('wallet_start', fix($input.val())))
       }
 
@@ -285,6 +287,8 @@ app.directive('entropy', ($rootScope, $document, $timeout, wallet, util) => {
           $rootScope.$broadcast('wallet_stop')
 
           $scope.enter.started = true
+
+          $scope.stage = 'stage-1.5'
 
           $scope.enter.reset()
           $scope.enterFocus()
