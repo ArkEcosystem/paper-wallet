@@ -70,6 +70,7 @@ entropy .btns {
   margin-bottom: 25px;
 }
 entropy .btns .btn,
+entropy .btn-generate-from-passphrase,
 wallet .btn-save {
   margin: 5px 0;
   padding: 15px 25px;
@@ -82,6 +83,7 @@ wallet .btn-save {
   box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
 }
 entropy .btns .btn:hover,
+entropy .btn-generate-from-passphrase:hover,
 wallet .btn-save:hover {
   color: #345ff2;
   background: #fff;
@@ -90,6 +92,7 @@ wallet .btn-save:hover {
   box-shadow: 0 0 25px 0px #b5b7bf;
 }
 entropy .btns .btn_primary,
+entropy .btn-generate-from-passphrase,
 wallet .btn-save {
   margin-bottom: 30px;
   background: #345ff2;
@@ -99,6 +102,7 @@ wallet .btn-save {
   box-shadow: 0 0 25px 0px rgba(52, 95, 242, 0.71);
 }
 entropy .btns .btn_primary:hover,
+entropy .btn-generate-from-passphrase:hover,
 wallet .btn-save:hover {
   background: #0b3eec;
   color: #fff;
@@ -108,6 +112,9 @@ wallet .btn-save:hover {
 }
 entropy .generate-key {
   margin-top: 80px;
+}
+entropy .input_passphrase {
+  border-radius: 0;
 }
 entropy byte {
   display: inline-block;

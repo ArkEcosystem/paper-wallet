@@ -33,12 +33,12 @@
       </div>
     </div>
     <script type="text/ng-template" id="entropy">
-      <div ng-show="stage == &quot;stage-1&quot;" class="container-fluid">
+      <div ng-show="stage == 1 || stage == 1.5" class="container-fluid">
         <div class="row noprint">
           <div class="col-md-12 text-center wallet-icon"><img src="images/wallet.png"></div>
         </div>
       </div>
-      <div ng-show="stage == &quot;stage-1&quot;" class="row noprint btns">
+      <div ng-show="stage == 1" class="row noprint btns">
         <div class="col-md-12 text-center">
           <button type="button" ng-click="random.start()" ng-disabled="btn_disabled" class="btn btn-info btn_primary">Create a new random wallet</button>
         </div>
@@ -47,11 +47,11 @@
         </div>
       </div>
       <div ng-show="enter.started" class="row noprint stage-2">
-        <div class="col-md-12 text-center">
+        <div class="col-md-6 col-md-offset-3 text-center">
           <div class="form-group">
             <input type="text" placeholder="enter your passphrase here" ng-model="enter.value" ng-keyup="enterKeyUp($event)" class="form-control input-lg text-center input_passphrase">
           </div>
-          <button ng-disabled="!enter.valid" ng-click="enterGenerate()" class="btn btn-default btn_generate">Generate</button>
+          <button ng-disabled="!enter.valid" ng-click="enterGenerate()" class="btn btn-generate-from-passphrase">Generate</button>
         </div>
       </div>
       <div class="row noprint generate-key">
