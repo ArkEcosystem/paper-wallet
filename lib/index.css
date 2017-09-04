@@ -1,5 +1,8 @@
 @import '../third-party/Inconsolata/css/inconsolata.css';
 @import '../third-party/lato-font/css/lato-font.css';
+@import 'https://fonts.googleapis.com/css?family=Comfortaa';
+@import 'https://fonts.googleapis.com/css?family=Montserrat';
+@import 'https://fonts.googleapis.com/css?family=Ubuntu';
 * {
   outline: 0 !important;
 }
@@ -50,9 +53,18 @@ body {
 .title-container {
   padding-bottom: 100px;
 }
+.site-title {
+  font-family: 'Comfortaa', cursive;
+}
+.site-slogan {
+  font-family: 'Montserrat', sans-serif;
+}
 .wallet-icon {
   margin-bottom: 60px;
   margin-top: -60px;
+}
+.btn {
+  font-family: 'Ubuntu', sans-serif;
 }
 entropy .btns {
   margin-bottom: 25px;
