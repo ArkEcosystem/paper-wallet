@@ -14,9 +14,6 @@ body {
   font-family: "Lato";
   margin-bottom: 60px;
 }
-.page-header {
-  border-bottom: 1px solid #efefef;
-}
 .page-header h1 a {
   color: #222;
 }
@@ -35,11 +32,70 @@ body {
 .page-header .gh-btns iframe {
   margin: 0 5px !important;
 }
+.page-header.logo {
+  margin-top: 50px;
+  margin-bottom: 8px;
+  padding-bottom: 0;
+}
+.footer {
+  margin-top: 40px;
+  color: #aeb6c3;
+}
+.footer a {
+  color: #000;
+}
+.bg-band-grey {
+  background: #f4f4f7;
+}
+.title-container {
+  padding-bottom: 100px;
+}
+.wallet-icon {
+  margin-bottom: 60px;
+  margin-top: -60px;
+}
 entropy .btns {
   margin-bottom: 25px;
 }
-entropy .btns .btn {
+entropy .btns .btn,
+wallet .btn-save {
   margin: 5px 0;
+  padding: 15px 25px;
+  color: #000;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
+  -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
+  box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
+}
+entropy .btns .btn:hover,
+wallet .btn-save:hover {
+  color: #345ff2;
+  background: #fff;
+  -webkit-box-shadow: 0 0 25px 0px #b5b7bf;
+  -moz-box-shadow: 0 0 25px 0px #b5b7bf;
+  box-shadow: 0 0 25px 0px #b5b7bf;
+}
+entropy .btns .btn_primary,
+wallet .btn-save {
+  margin-bottom: 30px;
+  background: #345ff2;
+  color: #fff;
+  -webkit-box-shadow: 0 0 25px 0px rgba(52, 95, 242, 0.71);
+  -moz-box-shadow: 0 0 25px 0px rgba(52, 95, 242, 0.71);
+  box-shadow: 0 0 25px 0px rgba(52, 95, 242, 0.71);
+}
+entropy .btns .btn_primary:hover,
+wallet .btn-save:hover {
+  background: #0b3eec;
+  color: #fff;
+  -webkit-box-shadow: 0 0 25px 0px #345ff2;
+  -moz-box-shadow: 0 0 25px 0px #345ff2;
+  box-shadow: 0 0 25px 0px #345ff2;
+}
+entropy .generate-key {
+  margin-top: 80px;
 }
 entropy byte {
   display: inline-block;
@@ -50,14 +106,14 @@ entropy byte {
   color: #555;
   line-height: 1.1;
   margin: 2px;
-  border-radius: 5px;
+  border-radius: 0;
   text-transform: uppercase;
-  background-color: #95a5a6;
-  color: #fff;
+  background-color: #f0f0f0;
+  color: #939397;
 }
 entropy byte .dec {
   font-size: 60%;
-  color: #ddd;
+  color: #939397;
 }
 entropy byte.change-add,
 entropy byte.change-remove {
@@ -66,8 +122,14 @@ entropy byte.change-remove {
 entropy byte.change,
 entropy byte.change-add-active,
 entropy byte.change-remove {
-  background-color: #18bc9c;
+  background-color: #1a23e7;
   transform: scale(1.1);
+  color: #fff;
+}
+entropy byte.change .dec,
+entropy byte.change-add-active .dec,
+entropy byte.change-remove .dec {
+  color: #fff;
 }
 entropy byte.change-remove-active {
   background-color: #95a5a6;
@@ -91,10 +153,12 @@ entropy .pulsate {
 entropy .progress {
   width: 80%;
   margin: 20px auto;
+  border-radius: 0;
+  height: 6px;
 }
 entropy .progress-bar {
   background-image: none;
-  background-color: #18bc9c;
+  background-color: #1a23e7;
   -webkit-transition: none;
   -moz-transition: none;
   -ms-transition: none;
@@ -117,13 +181,6 @@ wallet .hash.passphrase {
 wallet .hash.address {
   font-size: 170%;
   font-weight: bold;
-}
-wallet .data span:not(.badge) {
-  color: #888;
-}
-wallet qrcode.big img {
-  padding: 10px;
-  border: 1px solid #ddd;
 }
 wallet .paper-wrapper {
   position: relative;
@@ -149,6 +206,52 @@ wallet .paper-wrapper .paper .passphrase_label,
 wallet .paper-wrapper .paper .address_label {
   white-space: nowrap;
   color: #eee;
+}
+wallet qrcode {
+  margin: 25px;
+  float: left;
+}
+wallet .address-block {
+  padding: 20px;
+  margin-bottom: 60px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
+  -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
+  box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
+}
+wallet .address-block-public {
+  margin-top: -175px;
+}
+wallet .address-block h5 {
+  color: #969696;
+  font-weight: bold;
+  margin-top: 35px;
+}
+wallet .address-block-public h5 {
+  margin-top: 40px;
+}
+wallet .address-block .description {
+  display: inline-block;
+  margin: 18px 0;
+}
+wallet .key-data {
+  padding: 60px;
+  margin-bottom: 60px;
+  border: 1px solid rgba(181, 183, 191, 0.72);
+}
+wallet .key-data-item {
+  border-bottom: 1px solid rgba(181, 183, 191, 0.72);
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+wallet .key-data-item h5 {
+  color: #969696;
+  font-weight: bold;
+}
+wallet .key-data-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 .cssload-loader {
   position: relative;
