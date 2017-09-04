@@ -36,7 +36,7 @@ html.no-js
           = '.'
 
     script(type='text/ng-template', id='entropy')
-      .container-fluid(ng-show='stage == "stage-1"')
+      .container-fluid(ng-show='stage == "stage-1" || stage == "stage-1.5"')
         .row.noprint
           .col-md-12.text-center.wallet-icon()
             img(src="images/wallet.png")
@@ -46,9 +46,9 @@ html.no-js
         .col-md-12.text-center
           button.btn.btn-info(type='button', ng-click='enter.start()', ng-disabled='btn_disabled') Enter a secret passphrase
       .row.noprint.stage-2(ng-show='enter.started')
-        .col-md-12.text-center
+        .col-md-6.col-md-offset-3.text-center
           .form-group: input.form-control.input-lg.text-center.input_passphrase(type='text', placeholder='enter your passphrase here', ng-model='enter.value', ng-keyup='enterKeyUp($event)')
-          button.btn.btn-default.btn_generate(ng-disabled='!enter.valid', ng-click='enterGenerate()') Generate
+          button.btn.btn-generate-from-passphrase(ng-disabled='!enter.valid', ng-click='enterGenerate()') Generate
       .row.noprint.generate-key
         .col-md-12(ng-show='random.started')
           h4.text-center.pulsaste Move your mouse to generate random bytes

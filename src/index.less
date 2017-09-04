@@ -132,6 +132,20 @@ entropy {
     margin-top: 80px;
   }
 
+  .input_passphrase {
+    border-radius: 0;
+  }
+
+  .btn-generate-from-passphrase {
+    &:extend(entropy .btns .btn);
+    &:extend(entropy .btns .btn_primary);
+  }
+
+  .btn-generate-from-passphrase:hover {
+    &:extend(entropy .btns .btn:hover);
+    &:extend(entropy .btns .btn_primary:hover);
+  }
+
   byte {
     display: inline-block;
     text-align: center;
