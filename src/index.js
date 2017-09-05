@@ -1,94 +1,4 @@
 
-let arts = {
-  '0': {
-    image: '01',
-    width: 780,
-    height: 360,
-    address: {
-      qr: {
-        size: 150,
-        width: '150px',
-        height: '150px',
-        top: 45,
-        left: 15
-      },
-      text: {
-        width: 760,
-        height: 20,
-        lineHeight: '20px',
-        padding: '0 4px',
-        fontSize: 16,
-        fontFamily: 'Inconsolata',
-        fontWeight: 'bold',
-        top: 10,
-        left: 10,
-        textAlign: 'left'
-      },
-      label: {
-        hide: false,
-        top: 205,
-        left: 10,
-        lineHeight: '26px',
-        fontSize: 18,
-        fontFamily: 'Inconsolata',
-        fontWeight: 'bold',
-        textShadow: '1px 1px 1px rgba(0, 0, 0, 0.3)'
-      }
-    },
-    passphrase: {
-      qr: {
-        size: 150,
-        width: '150px',
-        height: '150px',
-        bottom: 45,
-        right: 15
-      },
-      text: {
-        width: 760,
-        height: 20,
-        lineHeight: '20px',
-        padding: '0 4px',
-        fontSize: 14,
-        fontFamily: 'Inconsolata',
-        fontWeight: 'bold',
-        bottom: 10,
-        left: 10,
-        textAlign: 'right'
-      },
-      label: {
-        hide: false,
-        bottom: 205,
-        right: 10,
-        lineHeight: '26px',
-        fontSize: 18,
-        fontFamily: 'Inconsolata',
-        fontWeight: 'bold',
-        textShadow: '1px 1px 1px rgba(0, 0, 0, 0.3)'
-      }
-    },
-    amount: {
-      label: {
-        top: 40,
-        left: 300,
-        height: 30,
-        lineHeight: '30px',
-        paddingLeft: 8,
-        fontSize: 14,
-        fontFamily: 'Inconsolata',
-        textShadow: '1px 1px 1px rgba(0, 0, 0, 0.3)'
-      }
-    }
-  },
-  '1': {
-    extend: '0',
-    image: '01'
-  },
-  '2': {
-    extend: '0',
-    image: '02'
-  }
-}
-
 let app = angular.module('app', ['wallet', 'ngAnimate', 'ui.bootstrap'])
 
 app.config(($compileProvider) => {
@@ -320,23 +230,6 @@ app.directive('wallet', ($rootScope, $timeout, wallet) => {
     link (scope, elem, attrs) {
       let $loading = elem.find('.loading').hide()
       let $after = elem.find('.after').hide()
-
-      scope.arts = arts
-
-      let extendArt = (id) => {
-        if (!scope.arts[id]) {
-          return {}
-        }
-
-        return angular.merge({}, extendArt(scope.arts[id].extend), scope.arts[id])
-      }
-
-      scope.set_art = (id) => {
-        scope.art_active = id
-        scope.art = extendArt(scope.art_active)
-      }
-
-      scope.set_art('1')
 
       $rootScope.$on('wallet_start', (ev, passphrase) => {
         $loading.show()
