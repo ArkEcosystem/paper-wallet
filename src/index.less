@@ -268,18 +268,19 @@ wallet {
     }
   }
 
-  qrcode {
-    margin: 25px;
-    float: left;
-  }
+  @key-block: {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 60px;
+  };
 
   .address-block {
     padding: 20px;
-    margin-bottom: 60px;
     background-color: #fff;
     -webkit-box-shadow: 0 0 25px 0px @faded-blue;
     -moz-box-shadow: 0 0 25px 0px @faded-blue;
     box-shadow: 0 0 25px 0px @faded-blue;
+    @key-block();
   }
   .address-block-public {
     margin-top: -175px;
@@ -299,10 +300,15 @@ wallet {
     margin: 18px 0;
   }
 
+  .address-block qrcode {
+    margin: 25px;
+    float: left;
+  }
+
   .key-data {
     padding: 60px;
-    margin-bottom: 60px;
     border: 1px solid @faded-blue;
+    @key-block();
   }
 
   .key-data-item {
