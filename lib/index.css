@@ -87,9 +87,9 @@ entropy .btn-generate-from-passphrase:hover,
 wallet .btn-save:hover {
   color: #345ff2;
   background: #fff;
-  -webkit-box-shadow: 0 0 25px 0px #b5b7bf;
-  -moz-box-shadow: 0 0 25px 0px #b5b7bf;
-  box-shadow: 0 0 25px 0px #b5b7bf;
+  -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
+  -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
+  box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
 }
 entropy .btns .btn_primary,
 entropy .btn-generate-from-passphrase,
@@ -226,17 +226,15 @@ wallet .paper-wrapper .paper .address_label {
   white-space: nowrap;
   color: #eee;
 }
-wallet qrcode {
-  margin: 25px;
-  float: left;
-}
 wallet .address-block {
   padding: 20px;
-  margin-bottom: 60px;
   background-color: #fff;
   -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
   -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
   box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 60px;
 }
 wallet .address-block-public {
   margin-top: -175px;
@@ -253,10 +251,16 @@ wallet .address-block .description {
   display: inline-block;
   margin: 18px 0;
 }
+wallet .address-block qrcode {
+  margin: 25px;
+  float: left;
+}
 wallet .key-data {
   padding: 60px;
-  margin-bottom: 60px;
   border: 1px solid rgba(181, 183, 191, 0.72);
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 60px;
 }
 wallet .key-data-item {
   border-bottom: 1px solid rgba(181, 183, 191, 0.72);
