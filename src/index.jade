@@ -102,7 +102,10 @@ html.no-js
               p.hash(ng-bind='data.wif', clipboard)
       .row.noprint.after
         .col-md-12.text-center
-          button.btn.btn-save(type='button', ng-click='print()')
+          button.btn.btn-print(type='button', ng-click='print()')
+            span.glyphicon.glyphicon-print(aria-hidden='true')
+            = ' Print'
+          button.btn.btn-save(type='button', ng-click='save()')
             span.glyphicon.glyphicon-download-alt(aria-hidden='true')
             = ' Save'
 
