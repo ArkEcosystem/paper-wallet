@@ -65,37 +65,34 @@ html.no-js
         .col-md-12
           .cssload-loader
       .row.noprint.after
-        .col-md-6.col-md-offset-3
-          .col-md-12
-            .address-block.address-block-public
-              qrcode(data='data.addressqr', size='100')
-              h5 Public Address (SHARE)
-              .hash.address(ng-bind='data.address', clipboard)
-              .clearfix
+        .col-md-12
+          .address-block.address-block-public
+            qrcode(data='data.addressqr', size='100')
+            h5 Public Address (SHARE)
+            .hash.address(ng-bind='data.address', clipboard)
+            .clearfix
       .row.noprint.after
-        .col-md-6.col-md-offset-3
-          .col-md-12
-            .address-block
-              qrcode(data='data.passphraseqr', size='100')
-              h5 Secret Passphrase (KEEP SAFE)
-              .hash.passphrase(ng-bind='data.passphrase', clipboard)
-              .clearfix
+        .col-md-12
+          .address-block
+            qrcode(data='data.passphraseqr', size='100')
+            h5 Secret Passphrase (KEEP SAFE)
+            .hash.passphrase(ng-bind='data.passphrase', clipboard)
+            .clearfix
       .row.noprint.after
-        .col-md-6.col-md-offset-3
-          .col-md-12
-            .key-data
-              .key-data-item
-                h5 Entropy
-                p.hash(ng-bind='data.entropy', clipboard)
-              .key-data-item
-                h5 Seed
-                p.hash(ng-bind='data.seed', clipboard)
-              .key-data-item
-                h5 Public Key
-                p.hash(ng-bind='data.publicKey', clipboard)
-              .key-data-item
-                h5 WIF
-                p.hash(ng-bind='data.wif', clipboard)
+        .col-md-12
+          .key-data
+            .key-data-item
+              h5 Entropy
+              p.hash(ng-bind='data.entropy', clipboard)
+            .key-data-item
+              h5 Seed
+              p.hash(ng-bind='data.seed', clipboard)
+            .key-data-item
+              h5 Public Key
+              p.hash(ng-bind='data.publicKey', clipboard)
+            .key-data-item
+              h5 WIF
+              p.hash(ng-bind='data.wif', clipboard)
       .row.noprint.after
         .col-md-12.text-center
           button.btn.btn-save(type='button', ng-click='print()')

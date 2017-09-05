@@ -75,49 +75,43 @@
         </div>
       </div>
       <div class="row noprint after">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="col-md-12">
-            <div class="address-block address-block-public">
-              <qrcode data="data.addressqr" size="100"></qrcode>
-              <h5>Public Address (SHARE)</h5>
-              <div ng-bind="data.address" clipboard class="hash address"></div>
-              <div class="clearfix"></div>
-            </div>
+        <div class="col-md-12">
+          <div class="address-block address-block-public">
+            <qrcode data="data.addressqr" size="100"></qrcode>
+            <h5>Public Address (SHARE)</h5>
+            <div ng-bind="data.address" clipboard class="hash address"></div>
+            <div class="clearfix"></div>
           </div>
         </div>
       </div>
       <div class="row noprint after">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="col-md-12">
-            <div class="address-block">
-              <qrcode data="data.passphraseqr" size="100"></qrcode>
-              <h5>Secret Passphrase (KEEP SAFE)</h5>
-              <div ng-bind="data.passphrase" clipboard class="hash passphrase"></div>
-              <div class="clearfix"></div>
-            </div>
+        <div class="col-md-12">
+          <div class="address-block">
+            <qrcode data="data.passphraseqr" size="100"></qrcode>
+            <h5>Secret Passphrase (KEEP SAFE)</h5>
+            <div ng-bind="data.passphrase" clipboard class="hash passphrase"></div>
+            <div class="clearfix"></div>
           </div>
         </div>
       </div>
       <div class="row noprint after">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="col-md-12">
-            <div class="key-data">
-              <div class="key-data-item">
-                <h5>Entropy</h5>
-                <p ng-bind="data.entropy" clipboard class="hash"></p>
-              </div>
-              <div class="key-data-item">
-                <h5>Seed</h5>
-                <p ng-bind="data.seed" clipboard class="hash"></p>
-              </div>
-              <div class="key-data-item">
-                <h5>Public Key</h5>
-                <p ng-bind="data.publicKey" clipboard class="hash"></p>
-              </div>
-              <div class="key-data-item">
-                <h5>WIF</h5>
-                <p ng-bind="data.wif" clipboard class="hash"></p>
-              </div>
+        <div class="col-md-12">
+          <div class="key-data">
+            <div class="key-data-item">
+              <h5>Entropy</h5>
+              <p ng-bind="data.entropy" clipboard class="hash"></p>
+            </div>
+            <div class="key-data-item">
+              <h5>Seed</h5>
+              <p ng-bind="data.seed" clipboard class="hash"></p>
+            </div>
+            <div class="key-data-item">
+              <h5>Public Key</h5>
+              <p ng-bind="data.publicKey" clipboard class="hash"></p>
+            </div>
+            <div class="key-data-item">
+              <h5>WIF</h5>
+              <p ng-bind="data.wif" clipboard class="hash"></p>
             </div>
           </div>
         </div>
