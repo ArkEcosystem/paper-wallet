@@ -76,7 +76,7 @@ html.no-js
         .col-md-12
           .address-block
             qrcode.primary.visible-lg-block(data='data.passphraseqr', size='100')
-            qrcode.mobile.hidden-lg(data='data.addressqr', size='200')
+            qrcode.mobile.hidden-lg(data='data.passphraseqr', size='200')
             h5 Secret Passphrase (KEEP SAFE)
             .hash.passphrase(ng-bind='data.passphrase', clipboard)
             .clearfix
