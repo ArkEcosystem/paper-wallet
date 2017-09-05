@@ -5,10 +5,10 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat';
 @import 'https://fonts.googleapis.com/css?family=Ubuntu';
 
-@faded-blue: rgba(181, 183, 191, .72);
-@full-blue: rgba(181, 183, 191, .72);
-@faded-grey: rgba(52, 95, 242, .71);
-@full-grey: rgba(52, 95, 242, 1);
+@faded-grey: rgba(181, 183, 191, .72);
+@full-grey: rgba(181, 183, 191, 1);
+@faded-blue: rgba(52, 95, 242, .72);
+@full-blue: rgba(52, 95, 242, 1);
 
 * {
   outline: 0 !important;
@@ -105,34 +105,34 @@ entropy {
       background: #fff;
       border: 0;
       border-radius: 0;
-      -webkit-box-shadow: 0 0 25px 0px @faded-blue;
-      -moz-box-shadow: 0 0 25px 0px @faded-blue;
-      box-shadow: 0 0 25px 0px @faded-blue;
-    }
-
-    .btn:hover {
-      color: @full-grey;
-      background: #fff;
-      -webkit-box-shadow: 0 0 25px 0px @full-blue;
-      -moz-box-shadow: 0 0 25px 0px @full-blue;
-      box-shadow: 0 0 25px 0px @full-blue;
-    }
-
-    .btn_primary {
-      margin-bottom: 30px;
-      background: @full-grey;
-      color: #fff;
       -webkit-box-shadow: 0 0 25px 0px @faded-grey;
       -moz-box-shadow: 0 0 25px 0px @faded-grey;
       box-shadow: 0 0 25px 0px @faded-grey;
     }
 
-    .btn_primary:hover {
-      background: rgba(11, 62, 236, 1);
-      color: #fff;
+    .btn:hover {
+      color: @full-blue;
+      background: #fff;
       -webkit-box-shadow: 0 0 25px 0px @full-grey;
       -moz-box-shadow: 0 0 25px 0px @full-grey;
       box-shadow: 0 0 25px 0px @full-grey;
+    }
+
+    .btn_primary {
+      margin-bottom: 30px;
+      background: @full-blue;
+      color: #fff;
+      -webkit-box-shadow: 0 0 25px 0px @faded-blue;
+      -moz-box-shadow: 0 0 25px 0px @faded-blue;
+      box-shadow: 0 0 25px 0px @faded-blue;
+    }
+
+    .btn_primary:hover {
+      background: rgba(11, 62, 236, 1);
+      color: #fff;
+      -webkit-box-shadow: 0 0 25px 0px @full-blue;
+      -moz-box-shadow: 0 0 25px 0px @full-blue;
+      box-shadow: 0 0 25px 0px @full-blue;
     }
   }
 
@@ -281,9 +281,9 @@ wallet {
   .address-block {
     padding: 20px;
     background-color: #fff;
-    -webkit-box-shadow: 0 0 25px 0px @faded-blue;
-    -moz-box-shadow: 0 0 25px 0px @faded-blue;
-    box-shadow: 0 0 25px 0px @faded-blue;
+    -webkit-box-shadow: 0 0 25px 0px @faded-grey;
+    -moz-box-shadow: 0 0 25px 0px @faded-grey;
+    box-shadow: 0 0 25px 0px @faded-grey;
     @key-block();
   }
   .address-block-public {
@@ -317,12 +317,12 @@ wallet {
 
   .key-data {
     padding: 60px;
-    border: 1px solid @faded-blue;
+    border: 1px solid @faded-grey;
     @key-block();
   }
 
   .key-data-item {
-    border-bottom: 1px solid @faded-blue;
+    border-bottom: 1px solid @faded-grey;
     padding-bottom: 30px;
     margin-bottom: 30px;
   }
