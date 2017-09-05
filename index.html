@@ -77,7 +77,8 @@
       <div class="row noprint after">
         <div class="col-md-12">
           <div class="address-block address-block-public">
-            <qrcode data="data.addressqr" size="100"></qrcode>
+            <qrcode data="data.addressqr" size="100" class="primary visible-lg-block"></qrcode>
+            <qrcode data="data.addressqr" size="200" class="mobile hidden-lg"></qrcode>
             <h5>Public Address (SHARE)</h5>
             <div ng-bind="data.address" clipboard class="hash address"></div>
             <div class="clearfix"></div>
@@ -87,7 +88,8 @@
       <div class="row noprint after">
         <div class="col-md-12">
           <div class="address-block">
-            <qrcode data="data.passphraseqr" size="100"></qrcode>
+            <qrcode data="data.passphraseqr" size="100" class="primary visible-lg-block"></qrcode>
+            <qrcode data="data.addressqr" size="200" class="mobile hidden-lg"></qrcode>
             <h5>Secret Passphrase (KEEP SAFE)</h5>
             <div ng-bind="data.passphrase" clipboard class="hash passphrase"></div>
             <div class="clearfix"></div>

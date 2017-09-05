@@ -67,14 +67,16 @@ html.no-js
       .row.noprint.after
         .col-md-12
           .address-block.address-block-public
-            qrcode(data='data.addressqr', size='100')
+            qrcode.primary.visible-lg-block(data='data.addressqr', size='100')
+            qrcode.mobile.hidden-lg(data='data.addressqr', size='200')
             h5 Public Address (SHARE)
             .hash.address(ng-bind='data.address', clipboard)
             .clearfix
       .row.noprint.after
         .col-md-12
           .address-block
-            qrcode(data='data.passphraseqr', size='100')
+            qrcode.primary.visible-lg-block(data='data.passphraseqr', size='100')
+            qrcode.mobile.hidden-lg(data='data.addressqr', size='200')
             h5 Secret Passphrase (KEEP SAFE)
             .hash.passphrase(ng-bind='data.passphrase', clipboard)
             .clearfix
