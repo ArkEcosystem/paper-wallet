@@ -5,6 +5,10 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat';
 @import 'https://fonts.googleapis.com/css?family=Ubuntu';
 
+@faded-blue: rgba(181, 183, 191, .72);
+@full-blue: rgba(181, 183, 191, .72);
+@faded-grey: rgba(52, 95, 242, .71);
+@full-grey: rgba(52, 95, 242, 1);
 
 * {
   outline: 0 !important;
@@ -97,34 +101,34 @@ entropy {
       background: #fff;
       border: 0;
       border-radius: 0;
-      -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
-      -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
-      box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
+      -webkit-box-shadow: 0 0 25px 0px @faded-blue;
+      -moz-box-shadow: 0 0 25px 0px @faded-blue;
+      box-shadow: 0 0 25px 0px @faded-blue;
     }
 
     .btn:hover {
-      color: rgba(52, 95, 242, 1);
+      color: @full-grey;
       background: #fff;
-      -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 1);
-      -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 1);
-      box-shadow: 0 0 25px 0px rgba(181, 183, 191, 1);
+      -webkit-box-shadow: 0 0 25px 0px @full-blue;
+      -moz-box-shadow: 0 0 25px 0px @full-blue;
+      box-shadow: 0 0 25px 0px @full-blue;
     }
 
     .btn_primary {
       margin-bottom: 30px;
-      background: rgba(52, 95, 242, 1);
+      background: @full-grey;
       color: #fff;
-      -webkit-box-shadow: 0 0 25px 0px rgba(52, 95, 242, .71);
-      -moz-box-shadow: 0 0 25px 0px rgba(52, 95, 242, .71);
-      box-shadow: 0 0 25px 0px rgba(52, 95, 242, .71);
+      -webkit-box-shadow: 0 0 25px 0px @faded-grey;
+      -moz-box-shadow: 0 0 25px 0px @faded-grey;
+      box-shadow: 0 0 25px 0px @faded-grey;
     }
 
     .btn_primary:hover {
       background: rgba(11, 62, 236, 1);
       color: #fff;
-      -webkit-box-shadow: 0 0 25px 0px rgba(52, 95, 242, 1);
-      -moz-box-shadow: 0 0 25px 0px rgba(52, 95, 242, 1);
-      box-shadow: 0 0 25px 0px rgba(52, 95, 242, 1);
+      -webkit-box-shadow: 0 0 25px 0px @full-grey;
+      -moz-box-shadow: 0 0 25px 0px @full-grey;
+      box-shadow: 0 0 25px 0px @full-grey;
     }
   }
 
@@ -273,9 +277,9 @@ wallet {
     padding: 20px;
     margin-bottom: 60px;
     background-color: #fff;
-    -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
-    -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
-    box-shadow: 0 0 25px 0px rgba(181, 183, 191, .72);
+    -webkit-box-shadow: 0 0 25px 0px @faded-blue;
+    -moz-box-shadow: 0 0 25px 0px @faded-blue;
+    box-shadow: 0 0 25px 0px @faded-blue;
   }
   .address-block-public {
     margin-top: -175px;
@@ -298,11 +302,11 @@ wallet {
   .key-data {
     padding: 60px;
     margin-bottom: 60px;
-    border: 1px solid rgba(181, 183, 191, .72);
+    border: 1px solid @faded-blue;
   }
 
   .key-data-item {
-    border-bottom: 1px solid rgba(181, 183, 191, .72);
+    border-bottom: 1px solid @faded-blue;
     padding-bottom: 30px;
     margin-bottom: 30px;
   }
