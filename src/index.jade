@@ -86,16 +86,16 @@ html.no-js
             .key-data
               .key-data-item
                 h5 Entropy
-                span.hash(ng-bind='data.entropy', clipboard)
+                p.hash(ng-bind='data.entropy', clipboard)
               .key-data-item
                 h5 Seed
-                span.hash(ng-bind='data.seed', clipboard)
+                p.hash(ng-bind='data.seed', clipboard)
               .key-data-item
                 h5 Public Key
-                span.hash(ng-bind='data.publicKey', clipboard)
+                p.hash(ng-bind='data.publicKey', clipboard)
               .key-data-item
                 h5 WIF
-                span.hash(ng-bind='data.wif', clipboard)
+                p.hash(ng-bind='data.wif', clipboard)
       .row.noprint.after
         .col-md-12.text-center
           button.btn.btn-save(type='button', ng-click='print()')
