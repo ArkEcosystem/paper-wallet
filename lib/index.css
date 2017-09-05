@@ -263,6 +263,7 @@ wallet .address-block qrcode.primary {
 wallet .address-block qrcode.mobile {
   display: block;
   text-align: center;
+  margin-top: 10px;
 }
 wallet .key-data {
   padding: 60px;
