@@ -92,9 +92,9 @@ entropy .btn-generate-from-passphrase:hover,
 wallet .btn-save:hover {
   color: #345ff2;
   background: #fff;
-  -webkit-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
-  -moz-box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
-  box-shadow: 0 0 25px 0px rgba(181, 183, 191, 0.72);
+  -webkit-box-shadow: 0 0 25px 0px #b5b7bf;
+  -moz-box-shadow: 0 0 25px 0px #b5b7bf;
+  box-shadow: 0 0 25px 0px #b5b7bf;
 }
 entropy .btns .btn_primary,
 entropy .btn-generate-from-passphrase,
@@ -102,9 +102,9 @@ wallet .btn-save {
   margin-bottom: 30px;
   background: #345ff2;
   color: #fff;
-  -webkit-box-shadow: 0 0 25px 0px rgba(52, 95, 242, 0.71);
-  -moz-box-shadow: 0 0 25px 0px rgba(52, 95, 242, 0.71);
-  box-shadow: 0 0 25px 0px rgba(52, 95, 242, 0.71);
+  -webkit-box-shadow: 0 0 25px 0px rgba(52, 95, 242, 0.72);
+  -moz-box-shadow: 0 0 25px 0px rgba(52, 95, 242, 0.72);
+  box-shadow: 0 0 25px 0px rgba(52, 95, 242, 0.72);
 }
 entropy .btns .btn_primary:hover,
 entropy .btn-generate-from-passphrase:hover,
@@ -370,5 +370,40 @@ wallet .key-data-item:last-child {
   .noprint,
   .noprint * {
     display: none;
+  }
+  .print,
+  .print * {
+    display: block;
+  }
+  .hidden.print {
+    display: block !important;
+  }
+  wallet .hash.address,
+  wallet .hash.passphrase {
+    font-weight: normal;
+  }
+  wallet .address-block {
+    margin-top: -15px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+  }
+  wallet .address-block img.print-logo {
+    margin-left: 30px;
+  }
+  wallet .address-block qrcode.print {
+    display: block !important;
+    margin: 0 15px;
+    border: 1px solid rgba(181, 183, 191, 0.72);
+    padding: 5px;
+  }
+  wallet .address-block h5 {
+    color: #969696 !important;
+    padding-top: 10px !important;
+  }
+  wallet .address-block.print-logo {
+    margin-top: 20px !important;
+  }
+  wallet .address-block-public h5 {
+    padding-top: 30px !important;
   }
 }
