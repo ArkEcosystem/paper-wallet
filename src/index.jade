@@ -31,7 +31,7 @@ html.no-js
       wallet
       #preload
 
-      div
+      div.noprint
         .footer.text-center
           = 'Hosted by GitHub Pages. Source code is available '
           a(href='https://github.com/arkecosystem/ark-paperwallet', target='blank') here
@@ -66,19 +66,23 @@ html.no-js
       .row.noprint.loading
         .col-md-12
           .cssload-loader
-      .row.noprint.after
+      .row.after.hidden.print
+        .col-md-12
+          .address-block.print-logo
+            img.print-logo(src='images/logo.png', title='Ark Paper Wallet', alt='Ark Paper Wallet')
+      .row.after
         .col-md-12
           .address-block.address-block-public
-            qrcode.primary.visible-lg-block(data='data.addressqr', size='100')
-            qrcode.mobile.hidden-lg(data='data.addressqr', size='200')
+            qrcode.primary.visible-lg-block.print(data='data.addressqr', size='100')
+            qrcode.mobile.hidden-lg.noprint(data='data.addressqr', size='200')
             h5 Public Address (SHARE)
             .hash.address(ng-bind='data.address', clipboard)
             .clearfix
-      .row.noprint.after
+      .row.after
         .col-md-12
           .address-block
-            qrcode.primary.visible-lg-block(data='data.passphraseqr', size='100')
-            qrcode.mobile.hidden-lg(data='data.passphraseqr', size='200')
+            qrcode.primary.visible-lg-block.print(data='data.passphraseqr', size='100')
+            qrcode.mobile.hidden-lg.noprint(data='data.passphraseqr', size='200')
             h5 Secret Passphrase (KEEP SAFE)
             .hash.passphrase(ng-bind='data.passphrase', clipboard)
             .clearfix
