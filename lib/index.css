@@ -72,6 +72,7 @@ entropy .btns {
 }
 entropy .btns .btn,
 entropy .btn-generate-from-passphrase,
+wallet .btn-print,
 wallet .btn-save {
   margin: 5px 0;
   padding: 15px 25px;
@@ -85,6 +86,7 @@ wallet .btn-save {
 }
 entropy .btns .btn:hover,
 entropy .btn-generate-from-passphrase:hover,
+wallet .btn-print:hover,
 wallet .btn-save:hover {
   color: #345ff2;
   background: #fff;
@@ -94,6 +96,7 @@ wallet .btn-save:hover {
 }
 entropy .btns .btn_primary,
 entropy .btn-generate-from-passphrase,
+wallet .btn-print,
 wallet .btn-save {
   margin-bottom: 30px;
   background: #345ff2;
@@ -104,6 +107,7 @@ wallet .btn-save {
 }
 entropy .btns .btn_primary:hover,
 entropy .btn-generate-from-passphrase:hover,
+wallet .btn-print:hover,
 wallet .btn-save:hover {
   background: #0b3eec;
   color: #fff;
