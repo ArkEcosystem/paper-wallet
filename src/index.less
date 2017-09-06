@@ -10,6 +10,14 @@
 @faded-blue: rgba(52, 95, 242, .72);
 @full-blue: rgba(52, 95, 242, 1);
 
+@font-montserrat: {
+  font-family: 'Montserrat', sans-serif;
+};
+
+@font-comfortaa: {
+  font-family: 'Comfortaa', cursive;
+};
+
 * {
   outline: 0 !important;
 }
@@ -75,10 +83,10 @@ body {
   padding-bottom: 100px;
 }
 .site-title {
-  font-family: 'Comfortaa', cursive;
+  @font-comfortaa();
 }
 .site-slogan {
-  font-family: 'Montserrat', sans-serif;
+  @font-montserrat();
 }
 .wallet-icon {
   margin-bottom: 60px;
@@ -223,19 +231,14 @@ entropy {
 
 wallet {
   .hash {
-    font-family: Inconsolata;
+    @font-montserrat();
     word-wrap: break-word;
     cursor: pointer;
     font-size: 100%;
 
+    &.address,
     &.passphrase {
       font-size: 140%;
-      font-weight: bold;
-    }
-
-    &.address {
-      font-size: 170%;
-      font-weight: bold;
     }
   }
 

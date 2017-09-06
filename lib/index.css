@@ -193,18 +193,14 @@ entropy input {
   font-family: Inconsolata;
 }
 wallet .hash {
-  font-family: Inconsolata;
+  font-family: 'Montserrat', sans-serif;
   word-wrap: break-word;
   cursor: pointer;
   font-size: 100%;
 }
+wallet .hash.address,
 wallet .hash.passphrase {
   font-size: 140%;
-  font-weight: bold;
-}
-wallet .hash.address {
-  font-size: 170%;
-  font-weight: bold;
 }
 wallet .paper-wrapper {
   position: relative;
