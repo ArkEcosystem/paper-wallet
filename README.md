@@ -1,3 +1,5 @@
+![ArkPaperWallet](https://i.imgur.com/41aMbNV.jpg)
+
 # ARK Paper Wallet
 
 > Paper wallet generator for Ark cryptocurrency.
