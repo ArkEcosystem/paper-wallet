@@ -28,7 +28,6 @@ angular.module('wallet', [])
           publicKey: publicKey,
           wif: wif,
           entropy: bip39.mnemonicToEntropy(passphrase),
-          seed: bip39.mnemonicToSeedHex(passphrase),
         }
       },
       validateMnemonic: (mnemonic) => {
