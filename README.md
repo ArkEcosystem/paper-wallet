@@ -23,6 +23,10 @@ Open `index.html` in your favorite browser.
 * Join the #development channel on Slack.
 * [Contribute bounties](./CONTRIBUTING.md).
 
+## Security
+
+If you discover a security vulnerability within this project, please send an e-mail to security@ark.io. All security vulnerabilities will be promptly addressed.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
