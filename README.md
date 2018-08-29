@@ -1,8 +1,10 @@
 # ARK Paper Wallet
 
-![ArkPaperWallet](https://i.imgur.com/41aMbNV.jpg)
+<p align="center">
+    <img src="./banner.png" />
+</p>
 
-> Paper wallet generator for Ark cryptocurrency.
+> Paper wallet generator for the Ark cryptocurrency.
 
 [![Latest Version](https://badgen.now.sh/github/release/ArkEcosystem/paper-wallet)](https://github.com/ArkEcosystem/paper-wallet/releases/latest)
 [![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
