@@ -1,12 +1,12 @@
 {
   "name": "arkpaperwallet",
-  "version": "0.1.2",
-  "description": "=fficial paper wallet generator for Ark cryptocurrency.",
-  "homepage": "https://github.com/arkecosystem/ark-paperwallet",
-  "bugs": "https://github.com/arkecosystem/ark-paperwallet/issues",
+  "version": "2.0.0",
+  "description": "official paper wallet generator for Ark cryptocurrency.",
+  "homepage": "https://github.com/arkecosystem/paper-wallet",
+  "bugs": "https://github.com/arkecosystem/paper-wallet/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/arkecosystem/ark-paperwallet"
+    "url": "https://github.com/arkecosystem/paper-wallet"
   },
   "dependencies": {
     "arkjs": "git://github.com/ArkEcosystem/ark-js#master",
