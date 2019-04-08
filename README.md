@@ -1,4 +1,4 @@
-# ARK Paper Wallet
+# Ark Paper Wallet
 
 <p align="center">
     <img src="./banner.png" />
@@ -14,6 +14,7 @@
 Open `index.html` in your favorite browser.
 
 ## Development
+
 1. Install a recent version of NodeJs >=11.12.0
 2. Install required commands `npm install -g bower concurrently gulp`
 3. Install package dependencies `npm install`
@@ -27,17 +28,11 @@ If you discover a security vulnerability within this project, please send an e-m
 
 ## Contributing
 
-* If you find any bugs, submit an [issue](../../issues) or open [pull-request](../../pulls), helping us catch and fix them.
-* Engage with other users and developers on [ARK Slack](https://ark.io/slack/).
-* Join the #development channel on Slack.
-* [Contribute bounties](https://github.com/ArkEcosystem/ARK-Bounty-Program).
+Please see [Contributing Guidelines](https://docs.ark.io/guidebook/contribution-guidelines/contributing.html) for details.
 
 ## Credits
 
-- [Alex Barnsley](https://github.com/alexbarnsley)
-- [Lúcio Rubens](https://github.com/luciorubeens)
-- [Juan Martín](https://github.com/j-a-m-l)
-- [All Contributors](../../contributors)
+This project exists thanks to all the people who [contribute](../../contributors).
 
 ## License
 
