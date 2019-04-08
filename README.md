@@ -14,8 +14,8 @@
 Open `index.html` in your favorite browser.
 
 ## Development
-1. Install a recent version of NodeJs
-2. Install required commands `npm install -g bower parallelshell gulp`
+1. Install a recent version of NodeJs >=11.12.0
+2. Install required commands `npm install -g bower concurrently gulp`
 3. Install package dependencies `npm install`
 4. Install bower dependencies `bower install`
 5. Build the app and watch for modifications `npm run watch`
