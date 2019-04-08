@@ -15,8 +15,8 @@ Open `index.html` in your favorite browser.
 
 ## Development
 
-1. Install a recent version of NodeJs
-2. Install required commands `npm install -g bower parallelshell gulp`
+1. Install a recent version of NodeJs >=11.12.0
+2. Install required commands `npm install -g bower concurrently gulp`
 3. Install package dependencies `npm install`
 4. Install bower dependencies `bower install`
 5. Build the app and watch for modifications `npm run watch`
@@ -32,10 +32,7 @@ Please see [Contributing Guidelines](https://docs.ark.io/guidebook/contribution-
 
 ## Credits
 
-- [Alex Barnsley](https://github.com/alexbarnsley)
-- [Lúcio Rubens](https://github.com/luciorubeens)
-- [Juan Martín](https://github.com/j-a-m-l)
-- [All Contributors](../../contributors)
+This project exists thanks to all the people who [contribute](../../contributors).
 
 ## License
 
