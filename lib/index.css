@@ -1,8 +1,23 @@
 @import '../third-party/Inconsolata/css/inconsolata.css';
 @import '../third-party/lato-font/css/lato-font.css';
-@import 'https://fonts.googleapis.com/css?family=Comfortaa';
-@import 'https://fonts.googleapis.com/css?family=Montserrat';
-@import 'https://fonts.googleapis.com/css?family=Ubuntu';
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/comfortaa/v22/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4WjMDrMfJQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v13/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Regular'), local('Ubuntu-Regular'), url(https://fonts.gstatic.com/s/ubuntu/v13/4iCs6KVjbNBYlgoKfw7z.ttf) format('truetype');
+}
 * {
   outline: 0 !important;
 }
@@ -141,7 +156,7 @@ entropy byte .dec {
 }
 entropy byte.change-add,
 entropy byte.change-remove {
-  transition: all .1s linear;
+  transition: all 0.1s linear;
 }
 entropy byte.change,
 entropy byte.change-add-active,
@@ -168,7 +183,7 @@ entropy .pulsate {
     opacity: 0.4;
   }
   50% {
-    opacity: 1.0;
+    opacity: 1;
   }
   100% {
     opacity: 0.4;
