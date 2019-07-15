@@ -1,7 +1,5 @@
-
 import crypto from 'crypto'
-
-import bip39 from 'bip39'
+import * as bip39 from 'bip39'
 import arkjs from 'arkjs'
 
 angular.module('wallet', [])
