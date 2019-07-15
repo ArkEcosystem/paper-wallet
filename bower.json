@@ -1,15 +1,15 @@
 {
-  "name": "arkpaperwallet",
-  "dependencies": {
-    "jquery": "^2.2.3",
-    "jquery-qrcode": "jquery.qrcode#^0.12.0",
-    "Inconsolata": "inconsolata#^0.0.1",
-    "angular": "1.5.5",
-    "angular-animate": "^1.6.0",
-    "bootswatch-dist": "3.3.6-flatly",
-    "lato-font": "^1.1.1",
-    "angular-bootstrap": "angular-ui-bootstrap-bower#^1.3.2",
-    "html2canvas": "^0.4.1"
-  },
-  "private": true
+    "name": "arkpaperwallet",
+    "dependencies": {
+        "jquery": "^2.2.3",
+        "jquery-qrcode": "jquery.qrcode#^0.12.0",
+        "Inconsolata": "inconsolata#^0.0.1",
+        "angular": "1.5.5",
+        "angular-animate": "^1.6.0",
+        "bootswatch-dist": "3.3.6-flatly",
+        "lato-font": "^1.1.1",
+        "angular-bootstrap": "angular-ui-bootstrap-bower#^1.3.2",
+        "html2canvas": "^0.4.1"
+    },
+    "private": true
 }
