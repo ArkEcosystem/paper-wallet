@@ -14,7 +14,7 @@
         "format": "prettier --write \"./*.{ts,js,json,md}\" \"./src/**/*.{ts,js,json,md}\""
     },
     "dependencies": {
-        "@arkecosystem/crypto": "^2.5.1",
+        "@arkecosystem/crypto": "^2.5.7",
         "bip39": "^3.0.2"
     },
     "devDependencies": {
