@@ -1,0 +1,26 @@
+version: 2
+jobs:
+    node-12:
+        docker:
+            - image: circleci/node:12
+        working_directory: ~/paper-wallet
+        steps:
+            - checkout
+            - restore_cache:
+                  keys:
+                      - v1-dependencies-{{ checksum "yarn.lock" }}
+                      - v1-dependencies-
+            - run: yarn install
+            - save_cache:
+                  paths:
+                      - node_modules
+                  key: v1-dependencies-{{ checksum "yarn.lock" }}
+            - run: yarn build
+            - run: yarn test:unit
+            # - run: yarn test:e2e
+            - run: ./node_modules/.bin/codecov
+workflows:
+    version: 2
+    build_and_test:
+        jobs:
+            - node-12
