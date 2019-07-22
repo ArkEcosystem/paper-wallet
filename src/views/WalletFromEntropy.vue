@@ -1,7 +1,7 @@
 <template>
     <div class="wallet-from-entropy mt-5">
         <div v-if="!wallet" class="relative">
-            <Spinner size="100" line-size="5" line-fg-color="#444ce7" line-bg-color="#c4d0e2" />
+            <Spinner size="100" :line-size="5" line-fg-color="#444ce7" line-bg-color="#c4d0e2" />
             <div class>
                 <div class="entropy-wrapper-outer bg-gray-200 rounded-full h-16 w-16">
                     <div class="entropy-wrapper-inner bg-white rounded-full h-12 w-12">
