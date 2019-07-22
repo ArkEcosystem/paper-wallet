@@ -1,0 +1,23 @@
+/* TODO: remove */
+.transition {
+    transition: all 0.1s ease-in;
+}
+
+.primary-action-button {
+    background-color: #fe463a;
+    @apply .flex .items-center .text-white .rounded .py-3 px-5 .font-semibold .transition;
+}
+
+.primary-action-button:hover {
+    background-color: #E1382D;
+    box-shadow: 0 5px 15px rgba(250, 64, 47, 0.34);
+}
+
+.secondary-action-button {
+    color: #037cff;
+    @apply .flex .items-center .font-semibold .transition;
+}
+
+.secondary-action-button:hover {
+    color: #1461ff;
+}

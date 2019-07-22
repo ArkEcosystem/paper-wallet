@@ -1,0 +1,44 @@
+/* TODO: figure out what overwrites the heading styles */
+h1,
+h2,
+h3,
+h4 {
+    @apply .font-bold .leading-none !important;
+}
+
+h1 {
+    @apply .text-6xl .mb-3 !important;
+}
+
+html {
+    background-color: #e2e6ec;
+}
+
+body {
+    color: #252f3e;
+}
+
+#content {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-top: 28%;
+    background-size: 100%;
+    max-width: 1400px;
+    @apply .bg-no-repeat .w-full;
+}
+
+@media screen and (min-width: 1400px) {
+    #content {
+        padding-top: 25rem;
+    }
+}
+
+.home {
+    @apply .flex .flex-col .items-center;
+}
+
+.inline-link {
+    color: inherit;
+    @apply .underline;
+}
