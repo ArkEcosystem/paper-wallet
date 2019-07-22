@@ -102,7 +102,7 @@ export default class Wallet extends Vue {
 
 .passphrase-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
     grid-gap: 0.75rem 0.75rem;
 }
 </style>

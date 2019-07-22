@@ -7,14 +7,22 @@ h4 {
 }
 
 h1 {
-    @apply .text-6xl .mb-3 !important;
+    @apply .text-4xl .mb-3 !important;
 }
+
+@screen sm {
+    h1 {
+        @apply .text-6xl !important;
+    }
+}
+
 
 html {
     background-color: #e2e6ec;
 }
 
 body {
+    margin: 0;
     color: #252f3e;
 }
 
@@ -25,7 +33,13 @@ body {
     padding-top: 28%;
     background-size: 100%;
     max-width: 1400px;
-    @apply .flex .flex-col .items-center .bg-no-repeat .w-full;
+    @apply .flex .flex-col .items-center .bg-no-repeat .w-full .px-4;
+}
+
+@screen sm {
+    #content {
+        @apply .px-10;
+    }
 }
 
 @media screen and (min-width: 1400px) {
