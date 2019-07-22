@@ -25,7 +25,7 @@ body {
     padding-top: 28%;
     background-size: 100%;
     max-width: 1400px;
-    @apply .bg-no-repeat .w-full;
+    @apply .flex .flex-col .items-center .bg-no-repeat .w-full;
 }
 
 @media screen and (min-width: 1400px) {

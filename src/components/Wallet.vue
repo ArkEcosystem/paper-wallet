@@ -1,40 +1,59 @@
 <template>
     <div>
-        <ul class="list-disc">
-            <li>
-                <strong>Passphrase:</strong>
-                {{ wallet.passphrase }}
-            </li>
-            <li>
-                <strong>Address:</strong>
-                {{ wallet.address }}
-            </li>
-            <li>
-                <strong>Public Key:</strong>
-                {{ wallet.publicKey }}
-            </li>
-            <li>
-                <strong>Wif:</strong>
-                {{ wallet.wif }}
-            </li>
-            <li>
-                <strong>Entropy:</strong>
-                {{ wallet.entropy }}
-            </li>
-        </ul>
+        <div class="bg-white rounded-t-lg px-16 py-10">
+            <div class="flex items-center wallet-property-row pb-6">
+                <qrcode :value="codeForAddress" :options="{ width: 100 }"></qrcode>
+                <div class="flex flex-col ml-3">
+                    <span>Wallet Address</span>
+                    <span class="font-semibold">{{ wallet.address }}</span>
+                </div>
+            </div>
+            <div class="flex items-center wallet-property-row pt-6">
+                <qrcode :value="codeForPassphrase" :options="{ width: 100 }"></qrcode>
+                <div class="flex flex-col ml-3 w-full">
+                    <span>Passphrase</span>
+                    <div class="passphrase-grid">
+                        <span v-for="word in passphraseWords" :key="word" class="py-1 px-2 border border-gray-300 rounded text-center">{{ word }}</span>
+                    </div>
+                </div>
+            </div>
 
-        <qrcode :value="codeForAddress" :options="{ width: 200 }"></qrcode>
-        <qrcode :value="codeForPassphrase" :options="{ width: 200 }"></qrcode>
+            <div class="flex items-center mt-5">
+                <button
+                    class="secondary-action-button mr-5"
+                    @click="save"
+                >
+                    <span class="mr-3">Save</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="15" viewBox="0 0 12 15" class="fill-current">
+                        <path d="M725.329,1059.71l-0.659-.75a0.5,0.5,0,0,0-.7-0.05L722,1060.64v-7.14a0.5,0.5,0,0,0-.5-0.5h-1a0.5,0.5,0,0,0-.5.5v7.14l-1.965-1.73a0.5,0.5,0,0,0-.7.05l-0.659.75a0.5,0.5,0,0,0,.046.71l3.954,3.46a0.512,0.512,0,0,0,.659,0l3.953-3.46A0.5,0.5,0,0,0,725.329,1059.71ZM726.5,1066h-11a0.5,0.5,0,0,0-.5.5v1a0.5,0.5,0,0,0,.5.5h11a0.5,0.5,0,0,0,.5-0.5v-1A0.5,0.5,0,0,0,726.5,1066Z" transform="translate(-715 -1053)"/>
+                    </svg>
+                </button>
 
-        <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold p-4 rounded"
-            @click="print"
-        >Print</button>
+                <button
+                    class="icon-button"
+                    @click="print"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" class="fill-current">
+                        <path d="M792.118,1060.88A2.88,2.88,0,0,0,790,1060h-1v-3a3.606,3.606,0,0,0-.313-1.38,3.567,3.567,0,0,0-.75-1.18l-2.375-2.38a3.686,3.686,0,0,0-1.188-.75A3.564,3.564,0,0,0,783,1051h-5.5a1.418,1.418,0,0,0-1.063.44,1.436,1.436,0,0,0-.438,1.06v7.5h-1a3.01,3.01,0,0,0-3,3v4.5a0.472,0.472,0,0,0,.149.35,0.478,0.478,0,0,0,.351.15H776v0.5a1.5,1.5,0,0,0,1.5,1.5h10a1.416,1.416,0,0,0,1.062-.44,1.432,1.432,0,0,0,.438-1.06V1068h3.5a0.48,0.48,0,0,0,.352-0.15,0.471,0.471,0,0,0,.148-0.35V1063A2.9,2.9,0,0,0,792.118,1060.88ZM787,1068h-9v-2h9v2Zm0-6h-9v-9h5v2.5a1.432,1.432,0,0,0,.438,1.06,1.456,1.456,0,0,0,1.063.44H787v5Zm2.851,1.85a0.487,0.487,0,0,1-.7,0,0.488,0.488,0,0,1,0-.7,0.487,0.487,0,0,1,.7,0A0.486,0.486,0,0,1,789.852,1063.85Z" transform="translate(-772 -1051)"/>
+                    </svg>
+                </button>
+            </div>
 
-        <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold p-4 rounded"
-            @click="save"
-        >Save</button>
+        </div>
+        <div class="bg-gray-100 rounded-b-lg px-16 py-10">
+            <div class="flex flex-col wallet-property-row">
+                <span>Entropy</span>
+                <span class="font-semibold">{{ wallet.entropy }}</span>
+            </div>
+            <div class="flex flex-col wallet-property-row pb-6 pt-6">
+                <span>Public Key</span>
+                <span class="font-semibold">{{ wallet.publicKey }}</span>
+            </div>
+            <div class="flex flex-col pt-6">
+                <span>WIF</span>
+                <span class="font-semibold">{{ wallet.wif }}</span>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -57,6 +76,10 @@ export default class Wallet extends Vue {
         return JSON.stringify({ passphrase: this.wallet.passphrase });
     }
 
+    get passphraseWords() {
+        return this.wallet.passphrase.split(" ");
+    }
+
     public print() {
         window.print();
     }
@@ -71,3 +94,15 @@ export default class Wallet extends Vue {
     }
 }
 </script>
+
+<style>
+.wallet-property-row {
+    @apply .border-b .border-dashed .border-gray-400 .pb-6;
+}
+
+.passphrase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+    grid-gap: 0.75rem 0.75rem;
+}
+</style>

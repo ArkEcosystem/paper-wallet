@@ -14,10 +14,30 @@
 }
 
 .secondary-action-button {
+    background-image: linear-gradient(to right, #2430ec, #2e5fed);
+    @apply .flex .items-center .text-white .rounded .py-3 .px-5 .font-semibold .transition;
+}
+
+.secondary-action-button:hover {
+    background-image: linear-gradient(to right, #1221ec, #1b4feb);
+}
+
+.link-button {
     color: #037cff;
     @apply .flex .items-center .font-semibold .transition;
 }
 
-.secondary-action-button:hover {
+.link-button:hover {
     color: #1461ff;
+}
+
+.icon-button {
+    background-color: #eef6ff;
+    color: #377fea;
+    @apply .flex .items-center .justify-center .rounded .p-3 .transition .w-12 .h-12;
+}
+
+.icon-button:hover {
+    background-color: #2c62e1;
+    color: #e0f0fd;
 }

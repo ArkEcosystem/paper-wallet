@@ -1,5 +1,5 @@
 <template>
-    <div class="wallet-from-entropy">
+    <div class="wallet-from-entropy mt-5">
         <div v-if="!wallet">
             <span class="entropy-title">E{{ entropyProgress.title }}</span>
             <hr />
