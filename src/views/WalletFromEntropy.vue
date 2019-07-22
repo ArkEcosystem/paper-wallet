@@ -1,9 +1,12 @@
 <template>
     <div class="wallet-from-entropy mt-5">
-        <div v-if="!wallet">
-            <span class="entropy-title">E{{ entropyProgress.title }}</span>
-            <hr />
-            <span class="entropy-subtitle">{{ entropyProgress.subtitle }}</span>
+        <div v-if="!wallet" class="relative">
+            <Spinner size="huge" />
+            <div class="absolute left-0 right-0 mx-auto text-center" style="top:25%;">
+                <span class="entropy-title">E{{ entropyProgress.title }}</span>
+                <hr />
+                <span class="entropy-subtitle">{{ entropyProgress.subtitle }}</span>
+            </div>
         </div>
 
         <Wallet :wallet="wallet" v-if="wallet" />
@@ -16,6 +19,7 @@ import Component from "vue-class-component";
 import { Prop } from "vue-property-decorator";
 import { Generator } from "more-entropy";
 import { randomBytes } from "crypto";
+import Spinner from "vue-simple-spinner"
 import Wallet from "@/components/Wallet.vue";
 import { walletFromEntropy } from "@/crypto";
 import { IWallet } from "@/interfaces";
@@ -23,6 +27,7 @@ import { IWallet } from "@/interfaces";
 @Component({
     components: {
         Wallet,
+        Spinner
     },
 })
 export default class WalletFromEntropy extends Vue {
