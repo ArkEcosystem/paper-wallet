@@ -11,7 +11,7 @@ describe("Wallet.vue", () => {
             },
         });
 
-        expect(wrapper.text()).toContain(walletDummy.passphrase);
+        expect(wrapper.text()).toContain(walletDummy.passphrase.replace(/ /g, ""));
     });
 
     it("renders props.wallet.address when passed", () => {
