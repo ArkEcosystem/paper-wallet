@@ -9,6 +9,8 @@
 [![Latest Version](https://badgen.now.sh/github/release/ArkEcosystem/paper-wallet)](https://github.com/ArkEcosystem/paper-wallet/releases/latest)
 [![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
+> Lead Maintainer: [Michel Kraaijeveld](https://github.com/ItsANameToo)
+
 ## Getting Started
 
 Open `index.html` in your favorite browser.
@@ -22,13 +24,13 @@ Open `index.html` in your favorite browser.
 5. Build the app and watch for modifications `npm run watch`
 6. Open `index.html` in your favorite browser
 
-## Security
-
-If you discover a security vulnerability within this project, please send an e-mail to security@ark.io. All security vulnerabilities will be promptly addressed.
-
 ## Contributing
 
 Please see [Contributing Guidelines](https://docs.ark.io/guidebook/contribution-guidelines/contributing.html) for details.
+
+## Security
+
+If you discover a security vulnerability within this package, please send an e-mail to security@ark.io. All security vulnerabilities will be promptly addressed.
 
 ## Credits
 
@@ -36,4 +38,4 @@ This project exists thanks to all the people who [contribute](../../contributors
 
 ## License
 
-[MIT](LICENSE) © [ArkEcosystem](https://ark.io)
+[MIT](LICENSE) © [ARK Ecosystem](https://ark.io)
