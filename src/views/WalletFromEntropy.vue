@@ -92,13 +92,22 @@ export default class WalletFromEntropy extends Vue {
 </script>
 
 <style>
+.entropy-container {
+    height: 100px;
+    position: absolute;
+    top: 0;
+    width: 100px;
+}
+
 .entropy-wrapper-outer,
 .entropy-wrapper-inner {
     @apply .flex .flex-col .justify-center .absolute .left-0 .right-0 .mx-auto .text-center;
 }
 
 .entropy-wrapper-outer {
-    top: 18%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .entropy-wrapper-inner {
