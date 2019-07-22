@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="wallet-details">
         <div class="bg-white rounded-t-lg px-6 sm:px-10 py-6 lg:px-16 lg:py-10">
             <div class="flex flex-col sm:flex-row items-center wallet-property-row pb-6">
                 <qrcode :value="codeForAddress" :options="{ width: 100 }"></qrcode>
@@ -85,7 +85,16 @@ export default class Wallet extends Vue {
     }
 
     public save() {
-        html2canvas(document.querySelector("html")).then(canvas => {
+        html2canvas(document.querySelector("#wallet-details"), {
+            x: 150,
+            y: 420,
+            scrollX: 0,
+            scrollY: 0,
+            width: 735,
+            height: 770,
+            windowWidth: 1024,
+            windowHeight: 800,
+        }).then(canvas => {
             const link = document.createElement("a");
             link.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
             link.download = "ark-paper-wallet.jpg";

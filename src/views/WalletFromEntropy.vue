@@ -1,11 +1,17 @@
 <template>
     <div class="wallet-from-entropy mt-5">
         <div v-if="!wallet" class="relative">
-            <Spinner size="huge" />
-            <div class="absolute left-0 right-0 mx-auto text-center" style="top:25%;">
-                <span class="entropy-title">E{{ entropyProgress.title }}</span>
-                <hr />
-                <span class="entropy-subtitle">{{ entropyProgress.subtitle }}</span>
+            <Spinner
+                size="100"
+                line-size="5"
+                line-fg-color="#444ce7"
+                line-bg-color="#c4d0e2"
+            />
+            <div class="">
+                <div class="entropy-wrapper bg-white rounded-full h-16 w-16">
+                    <span class="entropy-title">E{{ entropyProgress.title }}</span>
+                    <span class="entropy-subtitle">{{ entropyProgress.subtitle }}</span>
+                </div>
             </div>
         </div>
 
@@ -87,3 +93,18 @@ export default class WalletFromEntropy extends Vue {
     }
 }
 </script>
+
+<style>
+.entropy-wrapper {
+    top: 20%;
+    @apply .flex .flex-col .justify-center .absolute .left-0 .right-0 .mx-auto .text-center;
+}
+
+.entropy-title {
+    @apply .font-bold .text-xl .leading-none;
+}
+
+.entropy-subtitle {
+    @apply .text-gray-500 .text-sm;
+}
+</style>
