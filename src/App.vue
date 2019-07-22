@@ -6,7 +6,7 @@
                 <router-link to="/wallet-from-passphrase">Enter a secret passphrase</router-link>
             </div> -->
             <h1>ARK Paper Wallet</h1>
-            <span>Generate Your Own Unique ARK Passphrase and Address</span>
+            <span class="text-center">Generate Your Own Unique ARK Passphrase and Address</span>
 
             <router-view />
 

@@ -1,9 +1,9 @@
 <template>
-    <div class="wallet-from-passphrase">
-        <input type="text" v-model="passphrase" class="border p-4 mr-4" />
+    <div class="flex items-center wallet-from-passphrase mt-5">
+        <input type="text" placeholder="Enter your passphrase" v-model="passphrase" class="border p-4 mr-5" />
 
         <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold p-4 rounded"
+            class="primary-action-button"
             @click="generateWallet"
         >Generate</button>
 
