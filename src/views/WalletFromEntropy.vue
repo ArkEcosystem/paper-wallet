@@ -1,6 +1,6 @@
 <template>
     <div class="wallet-from-entropy mt-5">
-        <div v-if="!wallet" class="relative">
+        <div class="relative">
             <Spinner size="100" :line-size="5" line-fg-color="#444ce7" line-bg-color="#c4d0e2" />
             <div class="entropy-container">
                 <div class="entropy-wrapper-outer bg-gray-200 rounded-full h-16 w-16">
@@ -11,8 +11,6 @@
                 </div>
             </div>
         </div>
-
-        <Wallet :wallet="wallet" v-if="wallet" />
     </div>
 </template>
 
@@ -23,13 +21,11 @@ import { Prop } from "vue-property-decorator";
 import { Generator } from "more-entropy";
 import { randomBytes } from "crypto";
 import Spinner from "vue-simple-spinner";
-import Wallet from "@/components/Wallet.vue";
 import { walletFromEntropy } from "@/crypto";
 import { IWallet } from "@/interfaces";
 
 @Component({
     components: {
-        Wallet,
         Spinner,
     },
 })
@@ -38,7 +34,6 @@ export default class WalletFromEntropy extends Vue {
     public entropyCurrent: number | null = null;
     public entropyProgress: Record<string, string | number> | null = {};
     public entropyTimer: NodeJS.Timeout | null = null;
-    public wallet: IWallet | null = null;
 
     public mounted(): void {
         this.entropyTimer = setInterval(this.generateEntropyProgress, 100);
@@ -52,7 +47,10 @@ export default class WalletFromEntropy extends Vue {
 
     public generateWallet(): void {
         try {
-            this.wallet = walletFromEntropy(this.shuffle(this.entropy).slice(0, 16));
+            this.$router.push({
+                name: "wallet",
+                params: { wallet: btoa(JSON.stringify(walletFromEntropy(this.shuffle(this.entropy).slice(0, 16)))) },
+            });
         } catch (error) {
             // invalid passphrase, give some error indicator
         } finally {

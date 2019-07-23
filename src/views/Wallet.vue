@@ -1,8 +1,8 @@
 <template>
-    <div id="wallet-details">
+    <div id="wallet-details" v-if="wallet">
         <input type="hidden" id="wallet-passphrase" :value="wallet.passphrase" />
 
-        <div class="bg-white rounded-t-lg px-6 sm:px-10 py-6 lg:px-16 lg:py-10">
+        <div class="bg-white rounded-t-lg mt-10 px-6 sm:px-10 py-6 lg:px-16 lg:py-10">
             <div class="flex flex-col sm:flex-row items-center wallet-property-row pb-6">
                 <qrcode :value="codeForAddress" :options="{ width: 100 }"></qrcode>
                 <div class="flex flex-col ml-3">
@@ -89,14 +89,22 @@
 import Vue from "vue";
 import html2canvas from "html2canvas";
 import Component from "vue-class-component";
-import { Prop } from "vue-property-decorator";
+import { Prop, Watch } from "vue-property-decorator";
 import { IWallet } from "@/interfaces";
 
 @Component
 export default class Wallet extends Vue {
-    @Prop({ required: true }) public wallet: IWallet;
+    private wallet: IWallet = null;
     private isCopying: boolean = false;
     private isSaving: boolean = false;
+
+    public mounted() {
+        try {
+            this.wallet = JSON.parse(atob(this.$route.params.wallet));
+        } catch {
+            this.$router.push("/");
+        }
+    }
 
     get codeForAddress() {
         return JSON.stringify({ address: this.wallet.address });
