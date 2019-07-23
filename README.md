@@ -8,6 +8,8 @@
 [![Codecov](https://badgen.now.sh/codecov/c/github/arkecosystem/paper-wallet)](https://codecov.io/gh/arkecosystem/paper-wallet)
 [![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
+> Lead Maintainer: [Michel Kraaijeveld](https://github.com/ItsANameToo)
+
 ## Running Locally
 
 TODO; download source code and run it.
