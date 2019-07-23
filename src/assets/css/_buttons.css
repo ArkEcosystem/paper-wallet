@@ -23,7 +23,7 @@
 }
 
 .light-button {
-    background-color: #EDF4FE;
+    background-color: #eef6ff;
     color: #377fea;
     @apply .flex .items-center .justify-center .font-semibold .rounded .py-3 .px-5 .transition
 }
