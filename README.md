@@ -26,33 +26,35 @@ If the network you want to use is not listed in the dropdown, you can switch to 
 
 ## Development
 
-```sh
+### Requirements
+
+The ARK Paperwallet has the following requirements:
+
+- [Node](https://nodejs.org/)
+- [Yarn (Optional but recommended)](https://yarnpkg.com)
+
+### Commands
+
+<details><summary>List of commands</summary>
+
+``` bash
+# Install dependencies
 yarn install
-```
 
-### Compiles and hot-reloads for development
-
-```sh
+# Compiles and hot-reloads for development
 yarn run serve
-```
 
-### Compiles and minifies for production
-
-```sh
+# Compiles and minifies for production
 yarn run build
-```
 
-### Run your tests
-
-```sh
+# Run your tests
 yarn run test
-```
 
-### Lints and fixes files
-
-```sh
+# Lints and fixes files
 yarn run lint
 ```
+
+</details>
 
 ## Security
 
