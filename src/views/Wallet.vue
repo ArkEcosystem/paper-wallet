@@ -6,7 +6,7 @@
             <div class="flex flex-col sm:flex-row items-center wallet-property-row pb-6">
                 <qrcode :value="codeForAddress" :options="{ width: 100 }"></qrcode>
                 <div class="flex flex-col ml-3">
-                    <span>Wallet Address</span>
+                    <span>Address</span>
                     <span class="font-semibold break-all">{{ wallet.address }}</span>
                 </div>
             </div>
