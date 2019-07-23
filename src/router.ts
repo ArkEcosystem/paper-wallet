@@ -12,15 +12,14 @@ export default new Router({
             component: Home,
         },
         {
-            path: "/wallet-from-entropy",
-            name: "wallet-from-entropy",
-            component: () => import(/* webpackChunkName: "wallet-from-entropy" */ "./views/WalletFromEntropy.vue"),
+            path: "/entropy",
+            name: "entropy",
+            component: () => import(/* webpackChunkName: "entropy" */ "./views/WalletFromEntropy.vue"),
         },
         {
-            path: "/wallet-from-passphrase",
-            name: "wallet-from-passphrase",
-            component: () =>
-                import(/* webpackChunkName: "wallet-from-passphrase" */ "./views/WalletFromPassphrase.vue"),
+            path: "/passphrase",
+            name: "passphrase",
+            component: () => import(/* webpackChunkName: "passphrase" */ "./views/WalletFromPassphrase.vue"),
         },
         {
             path: "/wallet/:wallet",
