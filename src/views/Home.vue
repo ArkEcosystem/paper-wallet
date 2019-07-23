@@ -5,7 +5,7 @@
                 >Create a new wallet</router-link
             >
 
-            <router-link class="link-button whitespace-no-wrap" :to="{ name: 'passphrase' }"
+            <router-link class="light-button whitespace-no-wrap" :to="{ name: 'passphrase' }"
                 >Enter a secret passphrase</router-link
             >
         </div>

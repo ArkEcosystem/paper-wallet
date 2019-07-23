@@ -52,7 +52,13 @@ body {
     @apply .flex .flex-col .items-center;
 }
 
-.inline-link {
+.inline-link,
+.inline-link:visited {
     color: inherit;
     @apply .underline;
+}
+
+.inline-link:hover,
+.inline-link:visited:hover {
+    @apply .text-gray-600;
 }
