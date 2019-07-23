@@ -10,7 +10,7 @@
 
             <div class="flex justify-center items-center mt-10">
                 <button class="text-gray-500 inline-link mr-4" type="button" @click="openSettings()">
-                    Choose Network
+                    Choose Network: {{ network }}
                 </button>
 
                 <button class="text-gray-500 inline-link" type="button" @click="backToHome()" v-if="!isHome">
@@ -39,6 +39,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { config } from "@/config";
 import { Watch } from "vue-property-decorator";
 
 import Modal from "@/components/Modal.vue";
@@ -51,6 +52,7 @@ import Modal from "@/components/Modal.vue";
 export default class App extends Vue {
     private isOpen: boolean = false;
     private isHome: boolean = true;
+    private network: string | null = null
 
     @Watch("$route")
     public onPropertyChanged(value: string, oldValue: string) {
@@ -59,6 +61,7 @@ export default class App extends Vue {
 
     public mounted() {
         this.isHomeRoute();
+        this.refreshNetwork();
     }
 
     public backToHome(): void {
@@ -71,6 +74,17 @@ export default class App extends Vue {
 
     public closeSettings(): void {
         this.isOpen = false;
+        this.refreshNetwork();
+    }
+
+    private refreshNetwork(): void {
+        const network = config.getNetwork();
+        const name = config.getName();
+        if (name === "Custom") {
+            this.network = `${name}`;
+        } else {
+            this.network = `${name} | ${network.charAt(0).toUpperCase() + network.slice(1)}`;
+        }
     }
 
     private isHomeRoute(): void {
