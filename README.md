@@ -51,10 +51,17 @@ yarn run serve
 yarn run build
 
 # Run your tests
-yarn run test
+yarn run test:e2e
+yarn run test:unit
 
 # Lints and fixes files
 yarn run lint
+
+# Generate release zips
+yarn run task:release
+
+# Deploy on GitHub pages
+yarn run task:deploy
 ```
 
 </details>
