@@ -6,10 +6,19 @@ module.exports = {
     plugins: [
         tailwindcss("./tailwind.config.js"),
         autoprefixer(),
-        process.env.NODE_ENV === "production"
-            ? purgecss({
-                  content: ["./src/**/*.html", "./src/**/*.vue"],
-              })
-            : "",
+        purgecss({
+            content: ["./src/**/*.vue"],
+            extractors: [
+                {
+                    extractor: class TailwindExtractor {
+                        static extract(content) {
+                            return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+                        }
+                    },
+                    extensions: ["html", "vue"],
+                },
+            ],
+            whitelist: ["html", "body"],
+        }),
     ],
 };
