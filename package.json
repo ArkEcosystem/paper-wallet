@@ -10,19 +10,24 @@
         "test:unit": "vue-cli-service test:unit"
     },
     "dependencies": {
-        "@arkecosystem/crypto": "^2.5.7",
         "@chenfengyuan/vue-qrcode": "^1.0.1",
         "animate.css": "^3.7.2",
         "bip39": "^3.0.2",
+        "bs58check": "^2.1.2",
+        "buffer": "^5.2.1",
         "core-js": "^2.6.5",
         "html2canvas": "^1.0.0-rc.3",
         "more-entropy": "^0.0.7",
+        "ripemd160": "^2.0.2",
+        "secp256k1": "^3.7.1",
+        "simple-sha256": "^1.0.0",
         "tailwindcss": "^1.0.5",
         "vue": "^2.6.10",
         "vue-class-component": "^7.1.0",
         "vue-property-decorator": "^8.2.1",
         "vue-router": "^3.0.7",
-        "vue-simple-spinner": "^1.2.8"
+        "vue-simple-spinner": "^1.2.8",
+        "wif": "^2.0.6"
     },
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^1.2.0",
