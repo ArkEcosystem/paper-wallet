@@ -98,7 +98,7 @@ export default class Modal extends Vue {
 }
 
 .modal-top img {
-    width: 12rem;
+    width: 8rem;
     @apply .mt-3 .self-center;
 }
 
@@ -110,9 +110,20 @@ export default class Modal extends Vue {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 35rem;
+    width: 90%;
     max-height: 80%;
-    @apply .fixed .w-full .rounded-lg .overflow-auto .z-10;
+    @apply .fixed .rounded-lg .overflow-auto .z-10;
+}
+
+@screen sm {
+    .modal-content {
+        max-width: 35rem;
+        @apply .w-full;
+    }
+
+    .modal-top img {
+        width: 12rem;
+    }
 }
 
 .modal-backdrop {
