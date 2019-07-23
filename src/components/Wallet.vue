@@ -10,12 +10,16 @@
                     <span class="font-semibold break-all">{{ wallet.address }}</span>
                 </div>
             </div>
-            <div class="flex flex-col sm:flex-row items-center wallet-property-row pt-6">
+            <div class="flex flex-col sm:flex-row items-center pt-6">
                 <qrcode :value="codeForPassphrase" :options="{ width: 100 }"></qrcode>
                 <div class="flex flex-col ml-3 w-full">
                     <span>Passphrase</span>
                     <div class="passphrase-grid">
-                        <span v-for="word in passphraseWords" :key="word" class="py-1 px-2 border border-gray-300 rounded text-center">{{ word }}</span>
+                        <span
+                            v-for="word in passphraseWords"
+                            :key="word"
+                            class="py-1 px-2 border border-gray-300 rounded text-center"
+                        >{{ word }}</span>
                     </div>
                 </div>
             </div>
@@ -44,8 +48,12 @@
                     width="16px"
                     height="19px"
                     class="fill-current"
+                    :class="{ 'animated wobble': isCopying }"
                 >
-                    <path fill-rule="evenodd" d="M11.000,-0.000 L1.999,-0.000 C0.899,-0.000 -0.000,0.941 -0.000,2.091 L-0.000,13.000 L1.999,13.000 L1.999,2.000 L11.000,2.000 L11.000,-0.000 ZM14.000,3.994 L5.999,3.994 C4.900,3.994 3.999,4.944 3.999,6.106 L3.999,16.888 C3.999,18.049 4.900,19.000 5.999,19.000 L14.000,19.000 C15.099,19.000 16.000,18.049 16.000,16.888 L16.000,6.106 C16.000,4.944 15.099,3.994 14.000,3.994 ZM14.000,17.000 L5.999,17.000 L5.999,6.000 L14.000,6.000 L14.000,17.000 Z"/>
+                    <path
+                        fill-rule="evenodd"
+                        d="M11.000,-0.000 L1.999,-0.000 C0.899,-0.000 -0.000,0.941 -0.000,2.091 L-0.000,13.000 L1.999,13.000 L1.999,2.000 L11.000,2.000 L11.000,-0.000 ZM14.000,3.994 L5.999,3.994 C4.900,3.994 3.999,4.944 3.999,6.106 L3.999,16.888 C3.999,18.049 4.900,19.000 5.999,19.000 L14.000,19.000 C15.099,19.000 16.000,18.049 16.000,16.888 L16.000,6.106 C16.000,4.944 15.099,3.994 14.000,3.994 ZM14.000,17.000 L5.999,17.000 L5.999,6.000 L14.000,6.000 L14.000,17.000 Z"
+                    />
                 </svg>
             </button>
             <button class="secondary-action-button mr-5" @click="save">
@@ -56,6 +64,7 @@
                     height="15"
                     viewBox="0 0 12 15"
                     class="fill-current"
+                    :class="{ 'animated wobble': isSaving }"
                 >
                     <path
                         d="M725.329,1059.71l-0.659-.75a0.5,0.5,0,0,0-.7-0.05L722,1060.64v-7.14a0.5,0.5,0,0,0-.5-0.5h-1a0.5,0.5,0,0,0-.5.5v7.14l-1.965-1.73a0.5,0.5,0,0,0-.7.05l-0.659.75a0.5,0.5,0,0,0,.046.71l3.954,3.46a0.512,0.512,0,0,0,.659,0l3.953-3.46A0.5,0.5,0,0,0,725.329,1059.71ZM726.5,1066h-11a0.5,0.5,0,0,0-.5.5v1a0.5,0.5,0,0,0,.5.5h11a0.5,0.5,0,0,0,.5-0.5v-1A0.5,0.5,0,0,0,726.5,1066Z"
@@ -91,6 +100,8 @@ import { IWallet } from "@/interfaces";
 @Component
 export default class Wallet extends Vue {
     @Prop({ required: true }) public wallet: IWallet;
+    private isCopying: boolean = false;
+    private isSaving: boolean = false;
 
     get codeForAddress() {
         return JSON.stringify({ address: this.wallet.address });
@@ -113,16 +124,16 @@ export default class Wallet extends Vue {
         passphrase.setAttribute("type", "text");
         // @ts-ignore
         passphrase.select();
-​
         try {
             document.execCommand("copy");
             // copied
         } catch (err) {
             // not copied
         }
-​
         passphrase.setAttribute("type", "hidden");
         window.getSelection().removeAllRanges();
+
+        this.animate("isCopying");
     }
 
     public save() {
@@ -140,7 +151,14 @@ export default class Wallet extends Vue {
             link.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
             link.download = "ark-paper-wallet.jpg";
             link.click();
+
+            this.animate("isSaving");
         });
+    }
+
+    private animate(key: string): void {
+        this[key] = true;
+        setTimeout(() => (this[key] = false), 1000);
     }
 }
 </script>
