@@ -8,7 +8,9 @@
 
             <modal :is-open="isOpen" @close="closeSettings()"></modal>
 
-            <button class="text-gray-500 inline-link mt-10" type="button" @click="openSettings()">Choose Network</button>
+            <button class="text-gray-500 inline-link mt-10" type="button" @click="openSettings()">
+                Choose Network
+            </button>
 
             <div class="flex flex-col text-gray-500 text-center mt-10 mb-5">
                 <span>
@@ -32,7 +34,7 @@ import Modal from "@/components/Modal.vue";
 
 @Component({
     components: {
-        Modal
+        Modal,
     },
 })
 export default class App extends Vue {
@@ -45,7 +47,6 @@ export default class App extends Vue {
     public closeSettings(): void {
         this.isOpen = false;
     }
-
 }
 </script>
 

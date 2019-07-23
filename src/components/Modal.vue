@@ -8,22 +8,42 @@
                 <img src="@/assets/img/globe.png" />
             </div>
             <div class="modal-bottom">
+                <div v-if="!useCustom">
+                    <span class="mr-3 block w-full text-sm font-bold text-gray-500">Network</span>
+                    <div class="flex">
+                        <select v-model="selectedToken" class="w-4/5 container-inputs">
+                            <option v-for="token in tokens" :value="token.value" :key="token.label">{{
+                                token.label
+                            }}</option>
+                        </select>
 
-                <div>
-                    <span class="mr-3">Select Network:</span>
-                    <select @change="saveConfigFromNetwork" v-model="selectedToken">
-                        <option v-for="token in tokens" :value="token.value" :key="token.label">{{ token.label }}</option>
-                    </select>
-                </div>
-
-                <div class="mt-3">
-                    <span>Or use a custom network</span>
-                    <div class="flex flex-wrap">
-                        <input type="text" v-model="customAddressPrefix" placeholder="Address Prefix" />
-                        <input type="text" v-model="customWIF" placeholder="WIF" />
-                        <button class="light-button" @click.prevent="saveConfigFromCustom">Use Custom</button>
+                        <button class="light-button font-bold w-1/5" @click.prevent="saveConfigFromNetwork">
+                            Save
+                        </button>
                     </div>
+                    <span class="text-xs text-gray-500" @click="toggleCustom(true)">Want to use a custom network?</span>
                 </div>
+                <div v-else>
+                    <span class="mr-3 block w-full text-sm font-bold text-gray-500">Network</span>
+                    <div class="flex">
+                        <div class="flex mr-4 container-inputs">
+                            <input
+                                type="number"
+                                v-model="customAddressPrefix"
+                                placeholder="Address Prefix"
+                                class="w-2/4 mr-4"
+                            />
+
+                            <input type="number" v-model="customWIF" placeholder="WIF" class="w-2/4" />
+                        </div>
+
+                        <button class="light-button font-bold w-1/5" @click.prevent="saveConfigFromCustom">Save</button>
+                    </div>
+                    <span class="text-xs text-gray-500" @click="toggleCustom(false)"
+                        >Want to use an existing network?</span
+                    >
+                </div>
+                <Alert :message="error" type="error" v-if="error" />
             </div>
 
             <div class="modal-close-button" @click="close">
@@ -42,10 +62,11 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Prop } from "vue-property-decorator";
-import { config } from "../config";
-import { IToken, ITokenNetwork } from "../interfaces";
+import { config } from "@/config";
+import { IToken, ITokenNetwork } from "@/interfaces";
+import Alert from "@/components/Alert.vue";
 
-@Component
+@Component({ components: { Alert } })
 export default class Modal extends Vue {
     @Prop({ required: true }) public isOpen: boolean;
 
@@ -56,6 +77,8 @@ export default class Modal extends Vue {
     };
     public customAddressPrefix: number | null = null;
     public customWIF: number | null = null;
+    public useCustom: boolean = false;
+    public error: string | null = null;
 
     public mounted(): void {
         for (const token of Object.values(config.getTokens())) {
@@ -67,26 +90,42 @@ export default class Modal extends Vue {
             }
         }
 
+        this.useCustom = config.getName() === "Custom";
+
+        if (this.useCustom) {
+            this.customAddressPrefix = config.getAddressPrefix();
+            this.customWIF = config.getWIF();
+        }
+
         this.selectedToken = this.tokens[0].value;
     }
 
-    public saveConfigFromNetwork(): void {
+    private saveConfigFromNetwork(): void {
         config.setName(this.selectedToken.token);
         config.setToken(this.selectedToken.token.toLowerCase());
         config.setNetwork(this.selectedToken.network);
+
+        this.close();
     }
 
-    public saveConfigFromCustom(): void {
+    private saveConfigFromCustom(): void {
         if (this.customAddressPrefix && this.customWIF) {
             config.setName("Custom");
             config.setAddressPrefix(this.customAddressPrefix);
             config.setWIF(this.customWIF);
-            this.$emit("close");
+
+            this.close();
+        } else {
+            this.error = "Please fill out the address prefix and wif.";
         }
     }
 
-    public close(): void {
+    private close(): void {
         this.$emit("close");
+    }
+
+    private toggleCustom(value: boolean): void {
+        this.useCustom = value;
     }
 }
 </script>
@@ -110,14 +149,12 @@ export default class Modal extends Vue {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    max-height: 80%;
     @apply .fixed .rounded-lg .overflow-auto .z-10;
 }
 
 @screen sm {
     .modal-content {
-        max-width: 35rem;
+        max-width: 30rem;
         @apply .w-full;
     }
 
@@ -135,5 +172,28 @@ export default class Modal extends Vue {
     top: 10px;
     right: 10px;
     @apply .absolute .text-white .cursor-pointer;
+}
+
+/* Inputs */
+.container-inputs {
+    min-width: 311px !important;
+}
+
+/* Existing Networks */
+select {
+    appearance: none;
+    @apply .bg-white .mr-4 .py-2 .border-b-2 .border-gray-500 .rounded-none;
+}
+
+/* Custom Networks */
+input[type="number"] {
+    appearance: none;
+    @apply .bg-white .py-2 .border-b-2 .border-gray-500 .rounded-none;
+}
+
+/* Shared */
+select:focus,
+input[type="number"]:focus {
+    border-color: #2585ff;
 }
 </style>
