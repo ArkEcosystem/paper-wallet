@@ -1,20 +1,22 @@
+import { IToken } from "./interfaces";
+
 class Config {
     private readonly keyPrefix: string = "paper-wallet";
-    private readonly tokens: Record<string, object> = {
+    private readonly tokens: Record<string, IToken> = {
         ark: {
-            mainnet: {
-                addressPrefix: 23,
-                wif: 170,
-            },
-            devnet: {
-                addressPrefix: 30,
-                wif: 170,
+            name: "ARK",
+            networks: {
+                mainnet: {
+                    addressPrefix: 23,
+                    wif: 170,
+                },
+                devnet: {
+                    addressPrefix: 30,
+                    wif: 170,
+                },
             },
         },
     };
-
-    private addressPrefix: number | undefined = undefined;
-    private wif: number | undefined = undefined;
 
     public constructor() {
         if (!this.get("token")) {
@@ -26,6 +28,10 @@ class Config {
         }
 
         this.load();
+    }
+
+    public getTokens(): Record<string, IToken> {
+        return this.tokens;
     }
 
     public getToken(): string {
@@ -46,25 +52,39 @@ class Config {
         this.load();
     }
 
+    public getName(): string {
+        return this.get("name");
+    }
+
+    public setName(value: string): void {
+        this.set("name", value);
+    }
+
     public getAddressPrefix(): number {
-        return this.addressPrefix;
+        return +this.get("addressPrefix");
     }
 
     public setAddressPrefix(value: number): void {
-        this.addressPrefix = value;
+        this.set("addressPrefix", value.toString());
     }
 
     public getWIF(): number {
-        return this.wif;
+        return +this.get("wif");
     }
 
     public setWIF(value: number): void {
-        this.wif = value;
+        this.set("wif", value.toString());
     }
 
     private load(): void {
-        const { addressPrefix, wif } = this.tokens[this.getToken()][this.getNetwork()];
+        if (this.getName() === "Custom") {
+            return;
+        }
 
+        const { name, networks } = this.tokens[this.getToken()];
+        const { addressPrefix, wif } = networks[this.getNetwork()];
+
+        this.setName(name);
         this.setAddressPrefix(addressPrefix);
         this.setWIF(wif);
     }
