@@ -12,7 +12,10 @@
 
 ## Running Locally
 
-TODO; download source code and run it.
+There are two ways you can run the ARK Paperwallet locally:
+
+1. Download the latest `dist.zip` release, extract the contents and open the `index.html` file in your browser.
+2. Clone the repo, install the requirements and dependencies and run `yarn serve` to run a local version.
 
 ## Adding Networks
 
