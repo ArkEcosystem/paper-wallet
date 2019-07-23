@@ -2,11 +2,11 @@
     <div>
         <div class="flex items-center wallet-from-passphrase mt-5">
             <input type="text" placeholder="Enter your passphrase" v-model="passphrase" class="border p-4 mr-5" />
-            <button class="primary-action-button" @click="generateWallet">Generate</button>
+            <button class="primary-action-button" @click.prevent="generateWallet">Generate</button>
         </div>
         <div class="flex flex-col items-center" v-if="errorText">
             <Alert :message="errorText" type="error" />
-            <button class="text-gray-400 inline-link mt-3" @click="forceGenerateWallet">Generate Anyway</button>
+            <button class="text-gray-400 inline-link mt-3" @click.prevent="forceGenerateWallet">Generate Anyway</button>
         </div>
     </div>
 </template>
@@ -15,29 +15,31 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Prop } from "vue-property-decorator";
+import { validateMnemonic } from "bip39";
 import { walletFromBIP39 } from "@/crypto";
 import Alert from "@/components/Alert.vue";
 
 @Component({ components: { Alert } })
 export default class WalletFromPassphrase extends Vue {
     public passphrase: string | null = null;
-    private errorText: string | null = null;
+    public errorText: string | null = null;
 
     public generateWallet(): void {
-        try {
-            this.errorText = null;
-            this.$router.push({
-                name: "wallet",
-                params: { wallet: btoa(JSON.stringify(walletFromBIP39(this.passphrase))) },
-            });
-        } catch (error) {
-            // invalid passphrase, give some error indicator
-            this.errorText = "The passphrase does not appear to be BIP39"
+        if (!validateMnemonic(this.passphrase)) {
+            this.errorText = "The passphrase does not appear to be BIP39";
+            return;
         }
+
+        this.forceGenerateWallet();
     }
 
     public forceGenerateWallet(): void {
-        // TODO
+        this.errorText = null;
+
+        this.$router.push({
+            name: "wallet",
+            params: { wallet: btoa(JSON.stringify(walletFromBIP39(this.passphrase))) },
+        });
     }
 }
 </script>

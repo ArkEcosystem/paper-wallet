@@ -21,8 +21,11 @@
             <div class="flex flex-col text-gray-500 text-center mt-10 mb-5">
                 <span>
                     Hosted by GitHub Pages. Source code is available
-                    <a class="inline-link" href="https://github.com/ArkEcosystem/paper-wallet" target="_blank">here</a>. You can download and run locally
-                    <a class="inline-link" href="https://github.com/ArkEcosystem/paper-wallet/releases" target="_blank">here</a>
+                    <a class="inline-link" href="https://github.com/ArkEcosystem/paper-wallet" target="_blank">here</a>.
+                    You can download and run locally
+                    <a class="inline-link" href="https://github.com/ArkEcosystem/paper-wallet/releases" target="_blank"
+                        >here</a
+                    >
                 </span>
                 <span class="text-sm mt-2">
                     Made with ❤️
@@ -36,6 +39,8 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Watch } from "vue-property-decorator";
+
 import Modal from "@/components/Modal.vue";
 
 @Component({
@@ -45,9 +50,15 @@ import Modal from "@/components/Modal.vue";
 })
 export default class App extends Vue {
     private isOpen: boolean = false;
+    private isHome: boolean = true;
 
-    get isHome(): boolean {
-        return this.$router.currentRoute.name === "home";
+    @Watch("$route")
+    public onPropertyChanged(value: string, oldValue: string) {
+        this.isHomeRoute();
+    }
+
+    public mounted() {
+        this.isHomeRoute();
     }
 
     public backToHome(): void {
@@ -60,6 +71,10 @@ export default class App extends Vue {
 
     public closeSettings(): void {
         this.isOpen = false;
+    }
+
+    private isHomeRoute(): void {
+        this.isHome = this.$router.currentRoute.name === "home";
     }
 }
 </script>

@@ -6,6 +6,7 @@ import { Buffer } from "buffer/";
 import wif from "wif";
 import bs58check from "bs58check";
 import { config } from "./config";
+import { IWallet } from "./interfaces";
 
 const getAddress = (publicKey: string): string => {
     const buffer = Buffer.from(new RIPEMD160().update(Buffer.from(publicKey, "hex")).digest("hex"), "hex");
@@ -24,13 +25,21 @@ export const walletFromBIP39 = passphrase => {
     const privateKey: Buffer = Buffer.from(sync(passphrase), "hex");
     const publicKey: string = getPublicKey(privateKey);
 
-    return {
+    const wallet: IWallet = {
         passphrase,
         address: getAddress(publicKey),
         publicKey,
         wif: getWIF(privateKey),
-        entropy: mnemonicToEntropy(passphrase),
+        entropy: undefined,
     };
+
+    try {
+        wallet.entropy = mnemonicToEntropy(passphrase);
+    } catch (error) {
+        wallet.entropy = undefined;
+    }
+
+    return wallet;
 };
 
 export const walletFromEntropy = entropy => walletFromBIP39(entropyToMnemonic(entropy));
