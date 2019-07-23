@@ -6,7 +6,7 @@
         </div>
         <div class="flex flex-col items-center" v-if="errorText">
             <Alert :message="errorText" type="error" />
-            <button class="text-gray-400 inline-link mt-3" @click="generateWallet">Generate Anyway</button>
+            <button class="text-gray-400 inline-link mt-3" @click="forceGenerateWallet">Generate Anyway</button>
         </div>
     </div>
 </template>
@@ -23,7 +23,7 @@ export default class WalletFromPassphrase extends Vue {
     public passphrase: string | null = null;
     private errorText: string | null = null;
 
-    public generateWallet() {
+    public generateWallet(): void {
         try {
             this.errorText = null;
             this.$router.push({
@@ -34,6 +34,10 @@ export default class WalletFromPassphrase extends Vue {
             // invalid passphrase, give some error indicator
             this.errorText = "The passphrase does not appear to be BIP39"
         }
+    }
+
+    public forceGenerateWallet(): void {
+        // TODO
     }
 }
 </script>
