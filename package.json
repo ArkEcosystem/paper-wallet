@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint && prettier --write \"./*.{ts,js,json,md}\" \"./src/**/*.{ts,js,json,md}\" \"./tests/**/*.{ts,js,json,md}\"",
+        "lint": "vue-cli-service lint && prettier --write \"./*.{ts,js,json,md,vue}\" \"./src/**/*.{ts,js,json,md,vue}\" \"./tests/**/*.{ts,js,json,md,vue}\"",
         "serve": "vue-cli-service serve",
         "test:e2e": "vue-cli-service test:e2e",
         "test:unit": "vue-cli-service test:unit"

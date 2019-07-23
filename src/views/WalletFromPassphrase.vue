@@ -1,12 +1,7 @@
 <template>
     <div>
         <div v-if="!wallet" class="flex items-center wallet-from-passphrase mt-5">
-            <input
-                type="text"
-                placeholder="Enter your passphrase"
-                v-model="passphrase"
-                class="border p-4 mr-5"
-            />
+            <input type="text" placeholder="Enter your passphrase" v-model="passphrase" class="border p-4 mr-5" />
 
             <button class="primary-action-button" @click="generateWallet">Generate</button>
         </div>
