@@ -4,6 +4,7 @@
 set -e
 
 # build
+RELEASE_TYPE="gh-pages"
 yarn build
 
 # navigate into the build output directory
