@@ -3,7 +3,8 @@ h1,
 h2,
 h3,
 h4 {
-    @apply .font-bold .leading-none !important;
+    font-family: 'Lato', 'Avenir', Helvetica, Arial, sans-serif;
+    @apply .font-black .leading-none !important;
 }
 
 h1 {
@@ -16,7 +17,6 @@ h1 {
     }
 }
 
-
 html {
     background-color: #e2e6ec;
 }
@@ -27,7 +27,7 @@ body {
 }
 
 #content {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'Nunito Sans', 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-top: 28%;

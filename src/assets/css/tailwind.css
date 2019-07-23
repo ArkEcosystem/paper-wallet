@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './_fonts.css';
 @import './_animations.css';
 @import './_general.css';
 @import './_buttons.css';
