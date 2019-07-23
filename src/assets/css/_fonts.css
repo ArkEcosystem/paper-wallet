@@ -12,6 +12,6 @@
 
 @font-face {
     font-family: 'Nunito Sans';
-    src: url('../fonts/NunitoSans-SemiBold.ttf');
+    src: url('../fonts/NunitoSans-Bold.ttf'); /* We use "Bold" to have more of a difference between Regular and SemiBold */
     font-weight: 600;
 }
