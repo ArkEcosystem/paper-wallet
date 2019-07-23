@@ -8,9 +8,15 @@
 
             <modal :is-open="isOpen" @close="closeSettings()"></modal>
 
-            <button class="text-gray-500 inline-link mt-10" type="button" @click="openSettings()">
-                Choose Network
-            </button>
+            <div class="flex justify-center items-center mt-10">
+                <button class="text-gray-500 inline-link mr-4" type="button" @click="openSettings()">
+                    Choose Network
+                </button>
+
+                <button class="text-gray-500 inline-link" type="button" @click="backToHome()" v-if="!isHome">
+                    Back to Home
+                </button>
+            </div>
 
             <div class="flex flex-col text-gray-500 text-center mt-10 mb-5">
                 <span>
@@ -39,6 +45,14 @@ import Modal from "@/components/Modal.vue";
 })
 export default class App extends Vue {
     private isOpen: boolean = false;
+
+    get isHome(): boolean {
+        return this.$router.currentRoute.name === "home";
+    }
+
+    public backToHome(): void {
+        this.$router.push({ name: "home" });
+    }
 
     public openSettings(): void {
         this.isOpen = true;
