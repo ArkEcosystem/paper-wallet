@@ -52,7 +52,7 @@ import Modal from "@/components/Modal.vue";
 export default class App extends Vue {
     private isOpen: boolean = false;
     private isHome: boolean = true;
-    private network: string | null = null
+    private network: string | null = null;
 
     @Watch("$route")
     public onPropertyChanged(value: string, oldValue: string) {
