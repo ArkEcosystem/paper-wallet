@@ -8,7 +8,7 @@
 
             <modal :is-open="isOpen" @close="closeSettings()"></modal>
 
-            <div class="flex flex-wrap justify-center items-center mt-10 print-ignore">
+            <div class="flex flex-wrap justify-center items-center mt-10 print-ignore" v-if="!isGenerating">
                 <button class="text-gray-500 inline-link mr-4" type="button" @click="openSettings()">
                     Choose Network: {{ network }}
                 </button>
@@ -16,6 +16,10 @@
                 <button class="text-gray-500 inline-link" type="button" @click="backToHome()" v-if="!isHome">
                     Back to Home
                 </button>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center mt-10 print-ignore" v-else>
+                <span>Generating your passphrase, hang in there!</span>
             </div>
 
             <div class="flex flex-col text-gray-500 text-center mt-10 mb-5 print-ignore">
@@ -52,11 +56,13 @@ import Modal from "@/components/Modal.vue";
 export default class App extends Vue {
     private isOpen: boolean = false;
     private isHome: boolean = true;
+    private isGenerating: boolean = false;
     private network: string | null = null;
 
     @Watch("$route")
     public onPropertyChanged(value: string, oldValue: string): void {
         this.isHomeRoute();
+        this.isEntropyRoute();
         this.refreshNetwork();
     }
 
@@ -88,6 +94,10 @@ export default class App extends Vue {
 
     private isHomeRoute(): void {
         this.isHome = this.$router.currentRoute.name === "home";
+    }
+
+    private isEntropyRoute(): void {
+        this.isGenerating = this.$router.currentRoute.name === "entropy";
     }
 }
 </script>
