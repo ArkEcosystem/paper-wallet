@@ -11,13 +11,13 @@
                 <div v-if="!useCustom">
                     <span class="mr-3 block w-full text-sm font-bold text-gray-500">Network</span>
                     <div class="flex">
-                        <select v-model="selectedToken" class="w-4/5 container-inputs">
+                        <select v-model="selectedToken" class="w-full sm:w-4/5 container-inputs">
                             <option v-for="token in tokens" :value="token.value" :key="token.label">{{
                                 token.label
                             }}</option>
                         </select>
 
-                        <button class="light-button font-bold w-1/5" @click.prevent="saveConfigFromNetwork">
+                        <button class="light-button font-bold sm:w-1/5" @click.prevent="saveConfigFromNetwork">
                             Save
                         </button>
                     </div>
@@ -149,6 +149,7 @@ export default class Modal extends Vue {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 90%;
     @apply .fixed .rounded-lg .overflow-auto .z-10;
 }
 
@@ -174,9 +175,11 @@ export default class Modal extends Vue {
     @apply .absolute .text-white .cursor-pointer;
 }
 
-/* Inputs */
-.container-inputs {
-    min-width: 311px !important;
+@screen sm {
+    /* Inputs */
+    .container-inputs {
+        min-width: 311px !important;
+    }
 }
 
 /* Existing Networks */

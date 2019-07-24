@@ -5,7 +5,7 @@
 
 .primary-action-button {
     background-color: #fe463a;
-    @apply .flex .items-center .text-white .rounded .py-3 px-5 .font-semibold .transition;
+    @apply .flex .justify-center .items-center .text-white .rounded .py-3 px-5 .font-semibold .transition;
 }
 
 .primary-action-button:hover {
@@ -15,7 +15,7 @@
 
 .secondary-action-button {
     background-image: linear-gradient(to right, #2430ec, #2e5fed);
-    @apply .flex .items-center .text-white .rounded .py-3 .px-5 .font-semibold .transition;
+    @apply .flex .justify-center .items-center .text-white .rounded .py-3 .px-5 .font-semibold .transition;
 }
 
 .secondary-action-button:hover {

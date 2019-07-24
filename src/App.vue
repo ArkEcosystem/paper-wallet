@@ -8,7 +8,7 @@
 
             <modal :is-open="isOpen" @close="closeSettings()"></modal>
 
-            <div class="flex justify-center items-center mt-10 print-ignore">
+            <div class="flex flex-wrap justify-center items-center mt-10 print-ignore">
                 <button class="text-gray-500 inline-link mr-4" type="button" @click="openSettings()">
                     Choose Network: {{ network }}
                 </button>
