@@ -1,6 +1,10 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css");
 
 @media print {
+    #content {
+        padding-top: 3rem !important;
+    }
+
     .print-ignore {
         display: none !important;
     }
