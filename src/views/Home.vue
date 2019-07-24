@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <div class="flex flex-col sm:flex-row flex-wrap mt-5">
+        <div class="flex flex-col sm:flex-row flex-wrap mt-5 mb-10">
             <router-link class="primary-action-button mb-5 sm:mb-0 sm:mr-5 whitespace-no-wrap" :to="{ name: 'entropy' }"
                 >Create a new wallet</router-link
             >
