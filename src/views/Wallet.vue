@@ -8,14 +8,14 @@
                     <qrcode :value="codeForAddress" :options="{ width: 100 }"></qrcode>
                     <div class="flex flex-col ml-3">
                         <span>Address</span>
-                        <span class="font-semibold break-all">{{ wallet.address }}</span>
+                        <span class="font-semibold text-lg break-all">{{ wallet.address }}</span>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row items-center pt-6">
                     <qrcode :value="codeForPassphrase" :options="{ width: 100 }"></qrcode>
                     <div class="flex flex-col ml-3 w-full">
                         <span>Passphrase</span>
-                        <div class="passphrase-grid">
+                        <div class="passphrase-grid mt-2">
                             <div
                                 v-for="(word, index) in passphraseWords"
                                 :key="word"
@@ -31,15 +31,15 @@
             <div class="bg-gray-100 rounded-b-lg px-6 sm:px-10 py-6 lg:px-16 lg:py-10">
                 <div class="flex flex-col wallet-property-row" v-if="wallet.entropy">
                     <span>Entropy</span>
-                    <span class="font-semibold break-all">{{ wallet.entropy }}</span>
+                    <span class="font-semibold text-sm break-all">{{ wallet.entropy }}</span>
                 </div>
                 <div class="flex flex-col wallet-property-row pb-6" :class="{ 'pt-6': wallet.entropy }">
                     <span>Public Key</span>
-                    <span class="font-semibold break-all">{{ wallet.publicKey }}</span>
+                    <span class="font-semibold text-sm break-all">{{ wallet.publicKey }}</span>
                 </div>
                 <div class="flex flex-col pt-6">
                     <span>WIF</span>
-                    <span class="font-semibold break-all">{{ wallet.wif }}</span>
+                    <span class="font-semibold text-sm break-all">{{ wallet.wif }}</span>
                 </div>
             </div>
         </div>
