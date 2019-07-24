@@ -2,19 +2,56 @@
     <div v-if="wallet">
         <div id="wallet-details" v-if="wallet">
             <input type="hidden" id="wallet-passphrase" :value="wallet.passphrase" />
+            <input type="hidden" id="wallet-address" :value="wallet.address" />
 
             <div class="bg-white rounded-t-lg mt-10 px-6 sm:px-10 py-6 lg:px-16 lg:py-10">
                 <div class="flex flex-col sm:flex-row items-center wallet-property-row pb-6">
                     <qrcode :value="codeForAddress" :options="{ width: 100 }"></qrcode>
                     <div class="flex flex-col ml-3">
-                        <span>Address</span>
+                        <div class="flex">
+                            <span>Address</span>
+                            <button id="address-copy" class="ml-3" @click="copy('#wallet-address', 'isAddressCopying')">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="12px"
+                                    height="16px"
+                                    viewBox="0 0 16 19"
+                                    class="fill-current"
+                                    :class="{ 'animated wobble': isAddressCopying }"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M11.000,-0.000 L1.999,-0.000 C0.899,-0.000 -0.000,0.941 -0.000,2.091 L-0.000,13.000 L1.999,13.000 L1.999,2.000 L11.000,2.000 L11.000,-0.000 ZM14.000,3.994 L5.999,3.994 C4.900,3.994 3.999,4.944 3.999,6.106 L3.999,16.888 C3.999,18.049 4.900,19.000 5.999,19.000 L14.000,19.000 C15.099,19.000 16.000,18.049 16.000,16.888 L16.000,6.106 C16.000,4.944 15.099,3.994 14.000,3.994 ZM14.000,17.000 L5.999,17.000 L5.999,6.000 L14.000,6.000 L14.000,17.000 Z"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
                         <span class="font-semibold text-lg break-all">{{ wallet.address }}</span>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row items-center pt-6">
                     <qrcode :value="codeForPassphrase" :options="{ width: 100 }"></qrcode>
                     <div class="flex flex-col ml-3 w-full">
-                        <span>Passphrase</span>
+                        <div class="flex">
+                            <span>Passphrase</span>
+                            <button id="passphrase-copy" class="ml-3" @click="copy('#wallet-passphrase', 'isPassphraseCopying')">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="12px"
+                                    height="16px"
+                                    viewBox="0 0 16 19"
+                                    class="fill-current"
+                                    :class="{ 'animated wobble': isPassphraseCopying }"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M11.000,-0.000 L1.999,-0.000 C0.899,-0.000 -0.000,0.941 -0.000,2.091 L-0.000,13.000 L1.999,13.000 L1.999,2.000 L11.000,2.000 L11.000,-0.000 ZM14.000,3.994 L5.999,3.994 C4.900,3.994 3.999,4.944 3.999,6.106 L3.999,16.888 C3.999,18.049 4.900,19.000 5.999,19.000 L14.000,19.000 C15.099,19.000 16.000,18.049 16.000,16.888 L16.000,6.106 C16.000,4.944 15.099,3.994 14.000,3.994 ZM14.000,17.000 L5.999,17.000 L5.999,6.000 L14.000,6.000 L14.000,17.000 Z"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
                         <div class="passphrase-grid mt-2">
                             <div
                                 v-for="(word, index) in passphraseWords"
@@ -45,22 +82,6 @@
         </div>
 
         <div class="flex justify-center items-center mt-5 print-ignore">
-            <button class="secondary-action-button mr-5" @click="copy">
-                <span class="mr-3">Copy</span>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="16px"
-                    height="19px"
-                    class="fill-current"
-                    :class="{ 'animated wobble': isCopying }"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        d="M11.000,-0.000 L1.999,-0.000 C0.899,-0.000 -0.000,0.941 -0.000,2.091 L-0.000,13.000 L1.999,13.000 L1.999,2.000 L11.000,2.000 L11.000,-0.000 ZM14.000,3.994 L5.999,3.994 C4.900,3.994 3.999,4.944 3.999,6.106 L3.999,16.888 C3.999,18.049 4.900,19.000 5.999,19.000 L14.000,19.000 C15.099,19.000 16.000,18.049 16.000,16.888 L16.000,6.106 C16.000,4.944 15.099,3.994 14.000,3.994 ZM14.000,17.000 L5.999,17.000 L5.999,6.000 L14.000,6.000 L14.000,17.000 Z"
-                    />
-                </svg>
-            </button>
             <button class="secondary-action-button mr-5" @click="save">
                 <span class="mr-3">Save</span>
                 <svg
@@ -99,7 +120,8 @@ import { IWallet } from "@/interfaces";
 @Component
 export default class Wallet extends Vue {
     private wallet: IWallet = null;
-    private isCopying: boolean = false;
+    private isAddressCopying: boolean = false;
+    private isPassphraseCopying: boolean = false;
     private isSaving: boolean = false;
 
     public mounted() {
@@ -126,8 +148,8 @@ export default class Wallet extends Vue {
         window.print();
     }
 
-    public copy() {
-        const passphrase = document.querySelector("#wallet-passphrase");
+    public copy(selector, copyClass) {
+        const passphrase = document.querySelector(selector);
         passphrase.setAttribute("type", "text");
         // @ts-ignore
         passphrase.select();
@@ -140,10 +162,16 @@ export default class Wallet extends Vue {
         passphrase.setAttribute("type", "hidden");
         window.getSelection().removeAllRanges();
 
-        this.animate("isCopying");
+        this.animate(copyClass);
     }
 
     public save() {
+        /* Hide the icons so they don't show up in the image */
+        const address = document.querySelector("#address-copy");
+        const passphrase = document.querySelector("#passphrase-copy");
+        address.classList.add("hidden")
+        passphrase.classList.add("hidden")
+
         html2canvas(document.querySelector("#wallet-details"), {
             x: 150,
             y: 430,
@@ -161,6 +189,9 @@ export default class Wallet extends Vue {
 
             this.animate("isSaving");
         });
+
+        address.classList.remove("hidden")
+        passphrase.classList.remove("hidden")
     }
 
     private animate(key: string): void {
