@@ -5,12 +5,22 @@
             <input type="hidden" id="wallet-address" :value="wallet.address" />
 
             <div class="bg-white rounded-t-lg mt-10 px-6 sm:px-10 py-6 lg:px-16 lg:py-10">
+                <div class="text-center border-b border-dashed border-gray-400 pb-3 mb-3">
+                    <span class="text-gray-500"
+                        ><span class="font-semibold">{{ name }}</span
+                        >{{ network }} ( {{ date }} )</span
+                    >
+                </div>
                 <div class="flex flex-col sm:flex-row items-center wallet-property-row pb-6">
                     <qrcode :value="codeForAddress" :options="{ width: 100 }"></qrcode>
                     <div class="flex flex-col ml-3">
                         <div class="flex">
                             <span>Address</span>
-                            <button id="address-copy" class="print-ignore text-gray-500 ml-3" @click="copy('#wallet-address', 'isAddressCopying')">
+                            <button
+                                id="address-copy"
+                                class="print-ignore text-gray-500 ml-3"
+                                @click="copy('#wallet-address', 'isAddressCopying')"
+                            >
                                 <svg
                                     width="12px"
                                     height="16px"
@@ -33,7 +43,11 @@
                     <div class="flex flex-col ml-3 w-full">
                         <div class="flex">
                             <span>Passphrase</span>
-                            <button id="passphrase-copy" class="print-ignore text-gray-500 ml-3" @click="copy('#wallet-passphrase', 'isPassphraseCopying')">
+                            <button
+                                id="passphrase-copy"
+                                class="print-ignore text-gray-500 ml-3"
+                                @click="copy('#wallet-passphrase', 'isPassphraseCopying')"
+                            >
                                 <svg
                                     width="12px"
                                     height="16px"
@@ -53,10 +67,10 @@
                                 v-for="(word, index) in passphraseWords"
                                 :key="word"
                                 class="relative py-1 px-2 border border-gray-300 rounded text-center"
-                                >
-                                    <span>{{ word }}</span>
-                                    <span class="passphrase-index">{{ index +1 }}</span>
-                                </div>
+                            >
+                                <span>{{ word }}</span>
+                                <span class="passphrase-index">{{ index + 1 }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,6 +125,7 @@ import Vue from "vue";
 import html2canvas from "html2canvas";
 import Component from "vue-class-component";
 import { Prop, Watch } from "vue-property-decorator";
+import { config } from "@/config";
 import { IWallet } from "@/interfaces";
 
 @Component
@@ -126,6 +141,26 @@ export default class Wallet extends Vue {
         } catch {
             this.$router.push("/");
         }
+    }
+
+    get name(): string {
+        return config.getName();
+    }
+
+    get date(): string {
+        return new Date().toLocaleDateString(undefined, {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        });
+    }
+
+    get network(): string {
+        const network: string = config.getNetwork();
+        const name: string = config.getName();
+
+        return name === "Custom" ? `` : ` | ${network.charAt(0).toUpperCase() + network.slice(1)}`;
     }
 
     get codeForAddress() {
@@ -165,8 +200,8 @@ export default class Wallet extends Vue {
         /* Hide the icons so they don't show up in the image */
         const address = document.querySelector("#address-copy");
         const passphrase = document.querySelector("#passphrase-copy");
-        address.classList.add("hidden")
-        passphrase.classList.add("hidden")
+        address.classList.add("hidden");
+        passphrase.classList.add("hidden");
 
         html2canvas(document.querySelector("#wallet-details"), {
             x: 150,
@@ -174,20 +209,20 @@ export default class Wallet extends Vue {
             scrollX: 0,
             scrollY: 0,
             width: 737,
-            height: this.wallet.entropy ? 704 : 557,
+            height: this.wallet.entropy ? 747 : 600,
             windowWidth: 1024,
             windowHeight: 800,
         }).then(canvas => {
             const link = document.createElement("a");
             link.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-            link.download = "ark-paper-wallet.jpg";
+            link.download = `ark-paper-wallet-${this.wallet.address}.jpg`;
             link.click();
 
             this.animate("isSaving");
         });
 
-        address.classList.remove("hidden")
-        passphrase.classList.remove("hidden")
+        address.classList.remove("hidden");
+        passphrase.classList.remove("hidden");
     }
 
     private animate(key: string): void {

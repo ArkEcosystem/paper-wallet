@@ -185,7 +185,7 @@ export default class Modal extends Vue {
 /* Existing Networks */
 select {
     appearance: none;
-    background: url('../assets/img/icons/dropdown.svg') 96% / 20px no-repeat transparent;
+    background: url("../assets/img/icons/dropdown.svg") 96% / 20px no-repeat transparent;
     @apply .bg-white .mr-4 .py-2 .border-b-2 .border-gray-500 .rounded-none;
 }
 
