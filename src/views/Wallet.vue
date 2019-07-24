@@ -10,7 +10,7 @@
                     <div class="flex flex-col ml-3">
                         <div class="flex">
                             <span>Address</span>
-                            <button id="address-copy" class="print-ignore ml-3" @click="copy('#wallet-address', 'isAddressCopying')">
+                            <button id="address-copy" class="print-ignore text-gray-500 ml-3" @click="copy('#wallet-address', 'isAddressCopying')">
                                 <svg
                                     width="12px"
                                     height="16px"
@@ -33,7 +33,7 @@
                     <div class="flex flex-col ml-3 w-full">
                         <div class="flex">
                             <span>Passphrase</span>
-                            <button id="passphrase-copy" class="print-ignore ml-3" @click="copy('#wallet-passphrase', 'isPassphraseCopying')">
+                            <button id="passphrase-copy" class="print-ignore text-gray-500 ml-3" @click="copy('#wallet-passphrase', 'isPassphraseCopying')">
                                 <svg
                                     width="12px"
                                     height="16px"
