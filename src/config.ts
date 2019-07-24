@@ -1,22 +1,8 @@
 import { IToken } from "./interfaces";
+import { tokens } from "./tokens";
 
 class Config {
     private readonly keyPrefix: string = "paper-wallet";
-    private readonly tokens: Record<string, IToken> = {
-        ark: {
-            name: "ARK",
-            networks: {
-                mainnet: {
-                    addressPrefix: 23,
-                    wif: 170,
-                },
-                devnet: {
-                    addressPrefix: 30,
-                    wif: 170,
-                },
-            },
-        },
-    };
 
     public constructor() {
         if (!this.get("token")) {
@@ -31,7 +17,7 @@ class Config {
     }
 
     public getTokens(): Record<string, IToken> {
-        return this.tokens;
+        return tokens;
     }
 
     public getToken(): string {
@@ -81,7 +67,7 @@ class Config {
             return;
         }
 
-        const { name, networks } = this.tokens[this.getToken()];
+        const { name, networks } = tokens[this.getToken()];
         const { addressPrefix, wif } = networks[this.getNetwork()];
 
         this.setName(name);
