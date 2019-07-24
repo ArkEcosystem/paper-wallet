@@ -160,7 +160,7 @@ export default class Wallet extends Vue {
         const network: string = config.getNetwork();
         const name: string = config.getName();
 
-        return name === "Custom" ? `` : ` | ${network.charAt(0).toUpperCase() + network.slice(1)}`;
+        return name === "Custom" ? ` | Prefix ${config.getAddressPrefix()} - WIF ${config.getWIF()}` : ` | ${network.charAt(0).toUpperCase() + network.slice(1)}`;
     }
 
     get codeForAddress() {
