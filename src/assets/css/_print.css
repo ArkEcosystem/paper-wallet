@@ -8,4 +8,12 @@
     .print-ignore {
         display: none !important;
     }
+
+    .passphrase-grid {
+        height: 8rem;
+    }
+
+    .passphrase-grid > div {
+        height: 2.1rem;
+    }
 }
