@@ -6,7 +6,7 @@
         </div>
         <div class="flex flex-col items-center" v-if="errorText">
             <Alert :message="errorText" type="error" />
-            <button class="text-gray-400 inline-link mt-3" @click.prevent="forceGenerateWallet">Generate Anyway</button>
+            <button class="text-gray-500 inline-link mt-3" @click.prevent="forceGenerateWallet">Generate Anyway</button>
         </div>
     </div>
 </template>
