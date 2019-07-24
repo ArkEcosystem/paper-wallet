@@ -8,7 +8,7 @@
 
             <modal :is-open="isOpen" @close="closeSettings()"></modal>
 
-            <div class="flex justify-center items-center mt-10">
+            <div class="flex justify-center items-center mt-10 print-ignore">
                 <button class="text-gray-500 inline-link mr-4" type="button" @click="openSettings()">
                     Choose Network: {{ network }}
                 </button>
@@ -18,7 +18,7 @@
                 </button>
             </div>
 
-            <div class="flex flex-col text-gray-500 text-center mt-10 mb-5">
+            <div class="flex flex-col text-gray-500 text-center mt-10 mb-5 print-ignore">
                 <span>
                     Hosted by GitHub Pages. Source code is available
                     <a class="inline-link" href="https://github.com/ArkEcosystem/paper-wallet" target="_blank">here</a>.
