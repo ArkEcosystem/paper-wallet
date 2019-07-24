@@ -1,17 +1,17 @@
 @font-face {
-    font-family: 'Lato';
-    src: url('../fonts/Lato-Black.ttf');
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Bold.ttf');
     font-weight: 900;
 }
 
 @font-face {
-    font-family: 'Nunito Sans';
-    src: url('../fonts/NunitoSans-Regular.ttf');
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Regular.ttf');
     font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Nunito Sans';
-    src: url('../fonts/NunitoSans-Bold.ttf'); /* We use "Bold" to have more of a difference between Regular and SemiBold */
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-SemiBold.ttf');
     font-weight: 600;
 }
