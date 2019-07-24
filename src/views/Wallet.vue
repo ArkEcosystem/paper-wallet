@@ -28,7 +28,7 @@
             </div>
             <div class="bg-gray-100 rounded-b-lg px-6 sm:px-10 py-6 lg:px-16 lg:py-10">
                 <div class="flex flex-col wallet-property-row" v-if="wallet.entropy">
-                    <span class="print:font-bold">Entropy</span>
+                    <span>Entropy</span>
                     <span class="font-semibold break-all">{{ wallet.entropy }}</span>
                 </div>
                 <div class="flex flex-col wallet-property-row pb-6" :class="{ 'pt-6': wallet.entropy }">
