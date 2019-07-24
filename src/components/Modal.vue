@@ -21,7 +21,7 @@
                             Save
                         </button>
                     </div>
-                    <span class="text-xs text-gray-500" @click="toggleCustom(true)">Want to use a custom network?</span>
+                    <span class="text-xs inline-link" @click="toggleCustom(true)">Want to use a custom network?</span>
                 </div>
                 <div v-else>
                     <span class="mr-3 block w-full text-sm font-bold text-gray-500">Network</span>
@@ -39,7 +39,7 @@
 
                         <button class="light-button font-bold w-1/5" @click.prevent="saveConfigFromCustom">Save</button>
                     </div>
-                    <span class="text-xs text-gray-500" @click="toggleCustom(false)"
+                    <span class="text-xs inline-link" @click="toggleCustom(false)"
                         >Want to use an existing network?</span
                     >
                 </div>

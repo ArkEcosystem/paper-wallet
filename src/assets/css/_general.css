@@ -56,7 +56,7 @@ body {
 .inline-link,
 .inline-link:visited {
     color: inherit;
-    @apply .underline;
+    @apply .underline .cursor-pointer;
 }
 
 .inline-link:hover,
