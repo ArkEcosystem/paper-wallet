@@ -55,11 +55,12 @@ export default class App extends Vue {
     private network: string | null = null;
 
     @Watch("$route")
-    public onPropertyChanged(value: string, oldValue: string) {
+    public onPropertyChanged(value: string, oldValue: string): void {
         this.isHomeRoute();
+        this.refreshNetwork();
     }
 
-    public mounted() {
+    public mounted(): void {
         this.isHomeRoute();
         this.refreshNetwork();
     }
@@ -78,13 +79,11 @@ export default class App extends Vue {
     }
 
     private refreshNetwork(): void {
-        const network = config.getNetwork();
-        const name = config.getName();
-        if (name === "Custom") {
-            this.network = `${name}`;
-        } else {
-            this.network = `${name} | ${network.charAt(0).toUpperCase() + network.slice(1)}`;
-        }
+        const network: string = config.getNetwork();
+        const name: string = config.getName();
+
+        this.network =
+            name === "Custom" ? `${name}` : `${name} | ${network.charAt(0).toUpperCase() + network.slice(1)}`;
     }
 
     private isHomeRoute(): void {
