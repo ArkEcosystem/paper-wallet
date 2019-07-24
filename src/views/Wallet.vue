@@ -16,12 +16,14 @@
                     <div class="flex flex-col ml-3 w-full">
                         <span>Passphrase</span>
                         <div class="passphrase-grid">
-                            <span
-                                v-for="word in passphraseWords"
+                            <div
+                                v-for="(word, index) in passphraseWords"
                                 :key="word"
-                                class="py-1 px-2 border border-gray-300 rounded text-center"
-                                >{{ word }}</span
-                            >
+                                class="relative py-1 px-2 border border-gray-300 rounded text-center"
+                                >
+                                    <span>{{ word }}</span>
+                                    <span class="passphrase-index">{{ index +1 }}</span>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -177,5 +179,12 @@ export default class Wallet extends Vue {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
     grid-gap: 0.75rem 0.75rem;
+}
+
+.passphrase-index {
+    left: 5px;
+    top: 3px;
+    font-size: 0.6rem;
+    @apply .absolute .font-semibold .text-gray-500;
 }
 </style>
