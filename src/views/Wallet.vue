@@ -10,10 +10,8 @@
                     <div class="flex flex-col ml-3">
                         <div class="flex">
                             <span>Address</span>
-                            <button id="address-copy" class="ml-3" @click="copy('#wallet-address', 'isAddressCopying')">
+                            <button id="address-copy" class="print-ignore ml-3" @click="copy('#wallet-address', 'isAddressCopying')">
                                 <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="12px"
                                     height="16px"
                                     viewBox="0 0 16 19"
@@ -27,7 +25,7 @@
                                 </svg>
                             </button>
                         </div>
-                        <span class="font-semibold text-lg break-all">{{ wallet.address }}</span>
+                        <span class="font-semibold sm:text-lg break-all">{{ wallet.address }}</span>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row items-center pt-6">
@@ -35,10 +33,8 @@
                     <div class="flex flex-col ml-3 w-full">
                         <div class="flex">
                             <span>Passphrase</span>
-                            <button id="passphrase-copy" class="ml-3" @click="copy('#wallet-passphrase', 'isPassphraseCopying')">
+                            <button id="passphrase-copy" class="print-ignore ml-3" @click="copy('#wallet-passphrase', 'isPassphraseCopying')">
                                 <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="12px"
                                     height="16px"
                                     viewBox="0 0 16 19"
@@ -149,17 +145,17 @@ export default class Wallet extends Vue {
     }
 
     public copy(selector, copyClass) {
-        const passphrase = document.querySelector(selector);
-        passphrase.setAttribute("type", "text");
+        const element = document.querySelector(selector);
+        element.setAttribute("type", "text");
         // @ts-ignore
-        passphrase.select();
+        element.select();
         try {
             document.execCommand("copy");
             // copied
         } catch (err) {
             // not copied
         }
-        passphrase.setAttribute("type", "hidden");
+        element.setAttribute("type", "hidden");
         window.getSelection().removeAllRanges();
 
         this.animate(copyClass);
