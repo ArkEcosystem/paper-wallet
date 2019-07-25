@@ -3,6 +3,7 @@
 @media print {
     #content {
         padding-top: 3rem !important;
+        background-image: none !important;
     }
 
     .print-ignore {
