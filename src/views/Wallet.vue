@@ -216,7 +216,7 @@ export default class Wallet extends Vue {
             windowHeight: 800,
         }).then(canvas => {
             const link = document.createElement("a");
-            link.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+            link.href = canvas.toDataURL("image/jpeg");
             link.download = `ark-paper-wallet-${this.wallet.address}.jpg`;
             link.click();
 
