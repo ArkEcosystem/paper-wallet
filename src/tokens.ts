@@ -13,5 +13,5 @@ export const tokens: Record<string, IToken> = {
                 wif: 170,
             },
         },
-    }
+    },
 };

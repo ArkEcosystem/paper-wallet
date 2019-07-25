@@ -211,7 +211,7 @@ export default class Wallet extends Vue {
             scrollX: 0,
             scrollY: 0,
             width: 737,
-            height: this.wallet.entropy ? 747 : 600,
+            height: this.wallet.entropy ? 800 : 615,
             windowWidth: 1024,
             windowHeight: 800,
         }).then(canvas => {

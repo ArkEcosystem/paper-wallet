@@ -10,12 +10,30 @@
             <div class="modal-bottom">
                 <div v-if="!useCustom">
                     <span class="mr-3 block w-full text-sm font-bold text-gray-500">Network</span>
-                    <div class="flex">
-                        <select v-model="selectedToken" class="w-full sm:w-4/5 container-inputs">
-                            <option v-for="token in tokens" :value="token.value" :key="token.label">{{
-                                token.label
-                            }}</option>
-                        </select>
+                    <div class="flex items-center">
+                        <div class="inline-block relative w-full sm:w-4/5 mr-3">
+                            <select
+                                v-model="selectedToken"
+                                class="hover:border-gray-500 focus:outline-none focus:shadow-outline container-inputs"
+                            >
+                                <option v-for="token in tokens" :value="token.value" :key="token.label">{{
+                                    token.label
+                                }}</option>
+                            </select>
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                            >
+                                <svg
+                                    class="fill-current h-4 w-4"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
 
                         <button class="light-button font-bold sm:w-1/5" @click.prevent="saveConfigFromNetwork">
                             Save
@@ -184,9 +202,7 @@ export default class Modal extends Vue {
 
 /* Existing Networks */
 select {
-    appearance: none;
-    background: url("../assets/img/icons/dropdown.svg") 96% / 20px no-repeat transparent;
-    @apply .bg-white .mr-4 .py-2 .border-b-2 .border-gray-500 .rounded-none;
+    @apply .block .appearance-none .w-full .bg-white .border .border-gray-400 .px-4 .py-2 .pr-8 .rounded .shadow .leading-tight;
 }
 
 /* Custom Networks */
