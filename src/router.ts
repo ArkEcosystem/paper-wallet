@@ -22,7 +22,7 @@ export default new Router({
             component: () => import(/* webpackChunkName: "passphrase" */ "./views/WalletFromPassphrase.vue"),
         },
         {
-            path: "/wallet/:wallet",
+            path: "/wallet",
             name: "wallet",
             component: () => import(/* webpackChunkName: "wallet" */ "./views/Wallet.vue"),
         },
