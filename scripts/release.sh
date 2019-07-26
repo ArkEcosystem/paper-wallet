@@ -4,9 +4,10 @@
 set -e
 
 # make release folder
+rm -rf ./releases
 mkdir ./releases
 
 # for production
-RELEASE_TYPE="dist"
+export RELEASE_TYPE="dist"
 yarn build
 zip -r ./releases/dist.zip ./dist

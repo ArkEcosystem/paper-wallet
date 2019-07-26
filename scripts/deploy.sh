@@ -4,7 +4,7 @@
 set -e
 
 # build
-RELEASE_TYPE="gh-pages"
+export RELEASE_TYPE="gh-pages"
 yarn build
 
 # navigate into the build output directory
@@ -16,6 +16,6 @@ git add -A
 git commit -m 'deploy'
 
 # deploy
-git push -f git@github.com:ArkEcosystem/new-paper-wallet.git master:gh-pages
+git push -f git@github.com:ArkEcosystem/paper-wallet.git master:gh-pages
 
 cd -
