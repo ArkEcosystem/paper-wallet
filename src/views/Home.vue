@@ -1,12 +1,24 @@
 <template>
     <div class="home">
-        <div class="flex flex-col sm:flex-row flex-wrap mt-5 mb-10">
+        <div class="flex flex-col sm:flex-row flex-wrap mt-5 mb-5">
             <router-link class="primary-action-button mb-5 sm:mb-0 sm:mr-5 whitespace-no-wrap" :to="{ name: 'entropy' }"
                 >Create a new wallet</router-link
             >
 
             <router-link class="light-button whitespace-no-wrap" :to="{ name: 'passphrase' }"
                 >Enter a secret passphrase</router-link
+            >
+        </div>
+
+        <div class="flex flex-col sm:flex-row flex-wrap">
+            <router-link
+                class="primary-action-button mb-5 sm:mb-0 sm:mr-5 whitespace-no-wrap"
+                :to="{ name: 'message:sign' }"
+                >Sign Message</router-link
+            >
+
+            <router-link class="light-button whitespace-no-wrap" :to="{ name: 'message:verify' }"
+                >Verify Message</router-link
             >
         </div>
     </div>

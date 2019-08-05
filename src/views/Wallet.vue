@@ -6,10 +6,10 @@
 
             <div class="bg-white rounded-t-lg mt-10 px-6 sm:px-10 py-6 lg:px-16 lg:py-10">
                 <div class="text-center border-b border-dashed border-gray-400 pb-3 mb-3">
-                    <span class="text-gray-500"
-                        ><span class="font-semibold">{{ name }}</span
-                        >{{ network }} ( {{ date }} )</span
-                    >
+                    <span class="text-gray-500">
+                        <span class="font-semibold">{{ name }}</span>
+                        {{ network }} ( {{ date }} )
+                    </span>
                 </div>
                 <div class="flex flex-col sm:flex-row items-center wallet-property-row pb-6">
                     <qrcode :value="codeForAddress" :options="{ width: 100 }"></qrcode>
@@ -137,7 +137,7 @@ export default class Wallet extends Vue {
 
     public mounted() {
         try {
-            this.wallet = JSON.parse(atob(this.$route.params.wallet));
+            this.wallet = JSON.parse(this.$route.params.wallet);
         } catch {
             this.$router.push("/");
         }

@@ -45,7 +45,6 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { config } from "@/config";
 import { Watch } from "vue-property-decorator";
-
 import Modal from "@/components/Modal.vue";
 
 @Component({
