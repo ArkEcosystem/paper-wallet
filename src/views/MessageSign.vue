@@ -22,7 +22,7 @@
 
         <div class="flex flex-col items-center" v-if="errorText">
             <Alert :message="errorText" type="error" />
-            <button class="text-gray-500 inline-link mt-3" @click.prevent="forceSignMessage">Sign Anyway</button>
+            <button v-if="showForceSign" class="text-gray-500 inline-link mt-3" @click.prevent="forceSignMessage">Sign Anyway</button>
         </div>
     </div>
 </template>
@@ -39,8 +39,11 @@ export default class MessageSign extends Vue {
     public message: string | null = null;
     public passphrase: string | null = null;
     public errorText: string | null = null;
+    public showForceSign: boolean | null = null;
 
     public signMessage(): void {
+        this.showForceSign = false;
+
         if (!this.message) {
             this.errorText = "Please fill out the message.";
             return;
@@ -53,6 +56,7 @@ export default class MessageSign extends Vue {
 
         if (!validateMnemonic(this.passphrase)) {
             this.errorText = "The passphrase does not appear to be BIP39";
+            this.showForceSign = true;
             return;
         }
 
@@ -72,7 +76,8 @@ export default class MessageSign extends Vue {
 
 <style>
 /* Custom Networks */
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
     appearance: none;
     @apply .bg-transparent .py-2 .border-t-0 .border-l-0 .border-r-0 .border-b-2 .border-gray-500 .rounded-none;
 }
