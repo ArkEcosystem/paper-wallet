@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="w-full sm:w-auto">
         <div class="flex flex-col sm:flex-row sm:justify-start items-center wallet-from-passphrase mt-5">
             <input
                 type="text"
                 placeholder="Enter your message"
                 v-model="message"
-                class="border p-4 sm:mr-5 mb-5"
+                class="border p-4 w-full sm:w-auto sm:mr-5 mb-5"
                 id="message-message"
             />
 
@@ -13,7 +13,7 @@
                 type="password"
                 placeholder="Enter your passphrase"
                 v-model="passphrase"
-                class="border p-4 sm:mr-5 mb-5"
+                class="border p-4 w-full sm:w-auto sm:mr-5 mb-5"
                 id="message-passphrase"
             />
 
