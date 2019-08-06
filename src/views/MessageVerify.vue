@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="flex items-center wallet-from-passphrase mt-5">
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center wallet-from-passphrase mt-5">
             <input
                 type="text"
                 placeholder="Enter your message"
                 v-model="message"
-                class="border p-4 mr-5"
+                class="border p-4 sm:mr-5 mb-5"
                 id="message-message"
             />
 
@@ -13,7 +13,7 @@
                 type="text"
                 placeholder="Enter your public key"
                 v-model="publicKey"
-                class="border p-4 mr-5"
+                class="border p-4 sm:mr-5 mb-5"
                 id="message-publicKey"
             />
 
@@ -21,11 +21,11 @@
                 type="text"
                 placeholder="Enter your signature"
                 v-model="signature"
-                class="border p-4 mr-5"
+                class="border p-4 sm:mr-5 mb-5"
                 id="message-signature"
             />
 
-            <button class="primary-action-button" @click.prevent="verifyMessage">Verify</button>
+            <button class="primary-action-button mb-5" @click.prevent="verifyMessage">Verify</button>
         </div>
 
         <div class="flex flex-col items-center">

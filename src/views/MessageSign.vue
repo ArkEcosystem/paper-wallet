@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="flex items-center wallet-from-passphrase mt-5">
+        <div class="flex flex-col sm:flex-row sm:justify-start items-center wallet-from-passphrase mt-5">
             <input
                 type="text"
                 placeholder="Enter your message"
                 v-model="message"
-                class="border p-4 mr-5"
+                class="border p-4 sm:mr-5 mb-5"
                 id="message-message"
             />
 
@@ -13,11 +13,11 @@
                 type="password"
                 placeholder="Enter your passphrase"
                 v-model="passphrase"
-                class="border p-4 mr-5"
+                class="border p-4 sm:mr-5 mb-5"
                 id="message-passphrase"
             />
 
-            <button class="primary-action-button" @click.prevent="signMessage">Sign</button>
+            <button class="primary-action-button mb-5" @click.prevent="signMessage">Sign</button>
         </div>
 
         <div class="flex flex-col items-center" v-if="errorText">
