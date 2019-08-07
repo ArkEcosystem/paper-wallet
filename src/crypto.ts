@@ -22,6 +22,7 @@ const getPublicKey = (privateKey: Buffer): string => {
     // @ts-ignore - It expects a node.js Buffer but the browser Buffer has all methods we need
     return secp256k1.publicKeyCreate(privateKey).toString("hex");
 };
+
 const getWIF = (privateKey: Buffer): string => {
     // @ts-ignore - It expects a node.js Buffer but the browser Buffer has all methods we need
     return wif.encode(config.getWIF(), privateKey, true);

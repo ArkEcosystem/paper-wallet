@@ -49,7 +49,7 @@ export default class WalletFromEntropy extends Vue {
         try {
             this.$router.push({
                 name: "wallet",
-                params: { wallet: btoa(JSON.stringify(walletFromEntropy(this.shuffle(this.entropy).slice(0, 16)))) },
+                params: { wallet: JSON.stringify(walletFromEntropy(this.shuffle(this.entropy).slice(0, 16))) },
             });
         } catch (error) {
             // invalid passphrase, give some error indicator

@@ -38,7 +38,7 @@ export default class WalletFromPassphrase extends Vue {
 
         this.$router.push({
             name: "wallet",
-            params: { wallet: btoa(JSON.stringify(walletFromBIP39(this.passphrase))) },
+            params: { wallet: JSON.stringify(walletFromBIP39(this.passphrase)) },
         });
     }
 }

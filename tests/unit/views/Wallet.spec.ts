@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import Wallet from "@/views/Wallet.vue";
-import { walletDummy, walletBase64 } from "../../__fixtures__/wallet";
+import { walletDummy } from "../../__fixtures__/wallet";
 
 const createWrapper = () =>
     shallowMount(Wallet, {
@@ -8,7 +8,7 @@ const createWrapper = () =>
             $route: {
                 name: "wallet",
                 path: "/wallet/:id",
-                params: { wallet: walletBase64 },
+                params: { wallet: JSON.stringify(walletDummy) },
             },
         },
         stubs: {
