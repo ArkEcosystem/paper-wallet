@@ -22,7 +22,9 @@
 
         <div class="flex flex-col items-center" v-if="errorText">
             <Alert :message="errorText" type="error" />
-            <button v-if="showForceSign" class="text-gray-500 inline-link mt-3" @click.prevent="forceSignMessage">Sign Anyway</button>
+            <button v-if="showForceSign" class="text-gray-500 inline-link mt-3" @click.prevent="forceSignMessage">
+                Sign Anyway
+            </button>
         </div>
     </div>
 </template>
