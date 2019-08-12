@@ -11,15 +11,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- Message signing and verifying ([#25])
+-   Message signing and verifying ([#25])
 
 ### Fixed
 
-- Remove wallet data from url ([#23])
-- Resolved an issue with saving generated wallets on iOS ([#22])
+-   Remove wallet data from url ([#23])
+-   Resolved an issue with saving generated wallets on iOS ([#22])
 
 ## 3.0.0 - 25-07-2019
 
 ### Added
 
-- New ARK Paper Wallet version built from scratch, made with Vue.JS and TailwindCSS
+-   New ARK Paper Wallet version built from scratch, made with Vue.JS and TailwindCSS
