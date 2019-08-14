@@ -13,7 +13,7 @@ cd dist
 # add files
 git init
 git add -A
-git commit -m 'deploy'
+git commit -m 'deploy [ci skip]'
 
 # deploy
 git push -f git@github.com:ArkEcosystem/paper-wallet.git master:gh-pages
