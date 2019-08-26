@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 500 513" style="enable-background:new 0 0 500 513;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);}
+	.st1{fill:#FFFFFF;}
+</style>
+<g>
+	<defs>
+		<rect id="SVGID_1_" width="500" height="513"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g id="Canvas" class="st0">
+		<path id="Прямоугольник_1_копия_3" d="M40,0h420c22.1,0,40,17.9,40,40v433c0,22.1-17.9,40-40,40H40
+			c-22.1,0-40-17.9-40-40V40C0,17.9,17.9,0,40,0z"/>
+		<path id="Фигура_3_копия" class="st1" d="M250.5,208.2L52.1,416.8L250.5,96.2l197,320.6L250.5,208.2z M161.1,349.9
+			l31.7-33.5h114.8l31.7,33.5L161.1,349.9z M215.4,293.1l35.1-35.9l34.6,35.9H215.4z"/>
+	</g>
+</g>
+</svg>
