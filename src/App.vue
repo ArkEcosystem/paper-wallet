@@ -23,17 +23,9 @@
             </div>
 
             <div class="flex flex-col text-gray-500 text-center mt-10 mb-5 print-ignore">
-                <span>
-                    Hosted by GitHub Pages. Source code is available
-                    <a class="inline-link" href="https://github.com/ArkEcosystem/paper-wallet" target="_blank">here</a>.
-                    You can download and run locally
-                    <a class="inline-link" href="https://github.com/ArkEcosystem/paper-wallet/releases" target="_blank"
-                        >here</a
-                    >
-                </span>
                 <span class="text-sm mt-2">
                     Made with ❤️
-                    <a class="inline-link" href="https://ark.io" target="_blank">ARK.io</a>
+                    <a class="inline-link" href="https://ark.io" target="_blank">ARK.io</a> | <a class="inline-link" href="https://github.com/ArkEcosystem/paper-wallet" target="_blank">View source</a>
                 </span>
             </div>
         </div>
