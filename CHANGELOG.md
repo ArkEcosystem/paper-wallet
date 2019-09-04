@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## 3.2.0 - 04-09-2019
+
+### Added
+
+-   Progressive Web App  support ([#29])
+
 ## 3.1.0 - 07-08-2019
 
 ### Added
