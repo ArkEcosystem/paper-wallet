@@ -36,4 +36,20 @@ describe("Wallet.vue", () => {
     it("sets props.wallet.entropy when mounted", () => {
         expect(createWrapper().vm.$data.wallet.entropy).toContain(walletDummy.entropy);
     });
+
+    it("should redirect to the home page if the wallet identifier is not present", () => {
+        const wrapper = shallowMount(Wallet, {
+            mocks: {
+                $router: {
+                    push: jest.fn(),
+                },
+            },
+            stubs: {
+                qrcode: true,
+            },
+        });
+
+        expect(wrapper.vm.$router.push).toHaveBeenCalledTimes(1);
+        expect(wrapper.vm.$router.push).toBeCalledWith("/");
+    });
 });
