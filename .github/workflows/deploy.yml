@@ -1,11 +1,9 @@
-name: Test & Build
+name: Test & Deploy
 
 on:
     push:
         branches:
-            - "**"
-    pull_request:
-        types: [ready_for_review, synchronize, opened]
+            - "master"
 
 jobs:
     unit:
@@ -32,10 +30,7 @@ jobs:
             - name: Test
               run: yarn test:unit
 
-            - name: Codecov
-              run: ./node_modules/.bin/codecov --token=${{ secrets.CODECOV_TOKEN }}
-
-    build:
+    deploy:
         needs: unit
 
         runs-on: ubuntu-latest
@@ -55,11 +50,7 @@ jobs:
             - name: Install
               run: yarn install --frozen-lockfile
 
-            - name: Build
-              run: yarn task:release
-
-            - name: Upload .zip
-              uses: actions/upload-artifact@master
-              with:
-                  name: dist.zip
-                  path: releases/dist.zip
+            - name: Deploy
+              run: yarn task:deploy:workflow
+              env:
+                  GH_PAGES_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
