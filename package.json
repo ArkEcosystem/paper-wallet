@@ -19,7 +19,7 @@
         "bip39": "^3.0.2",
         "bs58check": "^2.1.2",
         "buffer": "^5.2.1",
-        "core-js": "^2.6.5",
+        "core-js": "^3.0.0",
         "html2canvas": "^1.0.0-rc.3",
         "more-entropy": "^0.0.7",
         "register-service-worker": "^1.6.2",
