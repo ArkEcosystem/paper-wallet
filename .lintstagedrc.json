@@ -1,4 +1,4 @@
 {
-    "*.ts": ["vue-cli-service lint", "git add"],
-    "*.vue": ["vue-cli-service lint", "git add"]
+    "*.ts": ["vue-cli-service lint"],
+    "*.vue": ["vue-cli-service lint"]
 }

@@ -19,8 +19,7 @@ const getAddress = (publicKey: string): string => {
 };
 
 const getPublicKey = (privateKey: Buffer): string => {
-    // @ts-ignore - It expects a node.js Buffer but the browser Buffer has all methods we need
-    return secp256k1.publicKeyCreate(privateKey).toString("hex");
+    return Buffer.from(secp256k1.publicKeyCreate(privateKey)).toString("hex");
 };
 
 const getWIF = (privateKey: Buffer): string => {
@@ -49,4 +48,4 @@ export const walletFromBIP39 = (passphrase: string) => {
     return wallet;
 };
 
-export const walletFromEntropy = entropy => walletFromBIP39(entropyToMnemonic(entropy));
+export const walletFromEntropy = (entropy) => walletFromBIP39(entropyToMnemonic(entropy));
