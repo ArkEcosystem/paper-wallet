@@ -9,4 +9,8 @@ if (process.env.RELEASE_TYPE === "dist") {
 module.exports = {
     publicPath,
     lintOnSave: false,
+    pwa: {
+      themeColor: "#fe463a",
+      msTileColor: "#fe463a",
+    },
 };
