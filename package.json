@@ -35,7 +35,7 @@
         "wif": "^2.0.6"
     },
     "devDependencies": {
-        "@fullhuman/postcss-purgecss": "^1.2.0",
+        "@fullhuman/postcss-purgecss": "^2.0.0",
         "@types/babel-core": "6.25.6",
         "@types/bytebuffer": "^5.0.40",
         "@types/core-js": "^2.5.2",
