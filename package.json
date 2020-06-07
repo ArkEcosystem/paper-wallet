@@ -61,7 +61,7 @@
         "purgecss": "^2.2.1",
         "stylus": "^0.54.7",
         "stylus-loader": "^3.0.2",
-        "ts-jest": "^25.5.1",
+        "ts-jest": "^26.0.0",
         "tslint-config-prettier": "^1.18.0",
         "typescript": "^3.8.3",
         "vue-template-compiler": "^2.6.11"
