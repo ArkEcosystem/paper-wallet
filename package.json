@@ -58,7 +58,7 @@
         "cross-env": "^7.0.2",
         "lint-staged": "^10.2.2",
         "prettier": "^2.0.5",
-        "purgecss": "^2.2.1",
+        "purgecss": "^3.0.0",
         "stylus": "^0.54.7",
         "stylus-loader": "^3.0.2",
         "ts-jest": "^26.0.0",
